@@ -46,8 +46,18 @@ const introExamples = [
     ],
   },
   { title: 'Non-Nested Routes', to: '/13-non-nested/products' },
-  { title: 'Route Matching', to: '/14-route-matching/products' },
-  { title: 'Escape Characters', to: '/15-escape-characters/sitemap.xml' },
+  {
+    title: 'useLocation',
+    to: '/14-use-location/$category',
+    params: { category: 'shoes' },
+  },
+  { title: 'Route Matching', to: '/15-route-matching/products' },
+  { title: 'Escape Characters', to: '/16-escape-characters/sitemap.xml' },
+  {
+    title: 'URL Rewrites',
+    to: '/17-url-rewrites/products/$productId',
+    params: { productId: '7' },
+  },
 ] as const
 
 export function Home() {

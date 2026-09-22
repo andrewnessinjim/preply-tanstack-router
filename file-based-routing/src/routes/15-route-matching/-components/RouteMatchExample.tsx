@@ -16,23 +16,23 @@ type RouteEntry = {
 const routes: Array<RouteEntry> = [
   {
     id: 'products.index.tsx',
-    label: '/14-route-matching/products',
+    label: '/15-route-matching/products',
     matches: (p) => p.length === 1 && p[0] === 'products',
-    visit: <Link to="/14-route-matching/products">Visit →</Link>,
+    visit: <Link to="/15-route-matching/products">Visit →</Link>,
   },
   {
     id: 'about.tsx',
-    label: '/14-route-matching/about',
+    label: '/15-route-matching/about',
     matches: (p) => p.length === 1 && p[0] === 'about',
-    visit: <Link to="/14-route-matching/about">Visit →</Link>,
+    visit: <Link to="/15-route-matching/about">Visit →</Link>,
   },
   {
     id: 'products.$productId.tsx',
-    label: '/14-route-matching/products/$productId',
+    label: '/15-route-matching/products/$productId',
     matches: (p) => p.length === 2 && p[0] === 'products',
     visit: (
       <Link
-        to="/14-route-matching/products/$productId"
+        to="/15-route-matching/products/$productId"
         params={{ productId: '42' }}
       >
         Visit →
@@ -41,22 +41,22 @@ const routes: Array<RouteEntry> = [
   },
   {
     id: 'products.specialOffer.tsx',
-    label: '/14-route-matching/products/specialOffer',
+    label: '/15-route-matching/products/specialOffer',
     matches: (p) => p.length === 2 && p[0] === 'products' && p[1] === 'specialOffer',
     visit: (
-      <Link to="/14-route-matching/products/specialOffer">Visit →</Link>
+      <Link to="/15-route-matching/products/specialOffer">Visit →</Link>
     ),
   },
   {
     id: 'products.$.tsx',
-    label: '/14-route-matching/products/$',
+    label: '/15-route-matching/products/$',
     // A bare splat matches "products" plus anything after it, including
     // nothing at all — but it ranks below the index, dynamic and static
     // siblings above wherever they also apply.
     matches: (p) => p.length >= 1 && p[0] === 'products',
     visit: (
       <Link
-        to="/14-route-matching/products/$"
+        to="/15-route-matching/products/$"
         params={{ _splat: 'shoes/running' }}
       >
         Visit →
@@ -73,7 +73,7 @@ export function RouteMatchExample({ current }: RouteMatchExampleProps) {
   const parts = useLocation({
     select: (location) =>
       location.pathname
-        .replace(/^\/14-route-matching\/?/, '')
+        .replace(/^\/15-route-matching\/?/, '')
         .split('/')
         .filter(Boolean),
   })

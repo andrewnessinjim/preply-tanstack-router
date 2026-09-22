@@ -24,13 +24,13 @@ export function EscapeCharacters({
       <p className="mt-4 text-slate-400">{body}</p>
       <div className="mt-4 flex gap-4">
         <Link
-          to="/15-escape-characters/sitemap.xml"
+          to="/16-escape-characters/sitemap.xml"
           className="text-sm font-medium text-indigo-300 hover:text-indigo-200"
         >
           Escaped →
         </Link>
         <Link
-          to="/15-escape-characters/sitemap/xml"
+          to="/16-escape-characters/sitemap/xml"
           className="text-sm font-medium text-indigo-300 hover:text-indigo-200"
         >
           Unescaped →
