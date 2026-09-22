@@ -38,7 +38,14 @@ const introExamples = [
       { to: '/11-pathless-layout/terms', label: 'Legal layout' },
     ],
   },
-  { title: 'Non-Nested Routes', to: '/12-non-nested/products' },
+  {
+    title: 'Pathless Route Group Directories',
+    links: [
+      { to: '/12-route-group/products', label: 'Shop layout' },
+      { to: '/12-route-group/terms', label: 'Legal layout' },
+    ],
+  },
+  { title: 'Non-Nested Routes', to: '/13-non-nested/products' },
 ] as const
 
 export function Home() {

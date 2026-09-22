@@ -2,7 +2,7 @@ import { Link, useParams } from '@tanstack/react-router'
 
 export function ProductDetail() {
   const { productId } = useParams({
-    from: '/12-non-nested/products/$productId',
+    from: '/13-non-nested/products/$productId',
   })
 
   return (
@@ -15,7 +15,7 @@ export function ProductDetail() {
         visible.
       </p>
       <Link
-        to="/12-non-nested/products/$productId/checkout"
+        to="/13-non-nested/products/$productId/checkout"
         params={{ productId }}
         className="mt-4 inline-block text-sm font-medium text-indigo-300 hover:text-indigo-200"
       >

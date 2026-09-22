@@ -14,7 +14,7 @@ export function ProductList() {
         {['1', '2'].map((productId) => (
           <li key={productId}>
             <Link
-              to="/12-non-nested/products/$productId"
+              to="/13-non-nested/products/$productId"
               params={{ productId }}
               className="font-medium text-slate-100 hover:text-indigo-300"
             >

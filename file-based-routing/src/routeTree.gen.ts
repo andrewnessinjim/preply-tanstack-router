@@ -23,7 +23,9 @@ import { Route as R09LayoutShopRouteImport } from './routes/09-layout/shop'
 import { Route as R10NestedLayoutShopRouteRouteImport } from './routes/10-nested-layout/shop/route'
 import { Route as R11PathlessLayoutLegalRouteImport } from './routes/11-pathless-layout/_legal'
 import { Route as R11PathlessLayoutShopRouteImport } from './routes/11-pathless-layout/_shop'
-import { Route as R12NonNestedProductsRouteImport } from './routes/12-non-nested/products'
+import { Route as R12RouteGrouplegalRouteRouteImport } from './routes/12-route-group/(legal)/route'
+import { Route as R12RouteGroupshopRouteRouteImport } from './routes/12-route-group/(shop)/route'
+import { Route as R13NonNestedProductsRouteImport } from './routes/13-non-nested/products'
 import { Route as R09LayoutShopIndexRouteImport } from './routes/09-layout/shop.index'
 import { Route as R09LayoutShopAboutRouteImport } from './routes/09-layout/shop.about'
 import { Route as R09LayoutShopProductsRouteImport } from './routes/09-layout/shop.products'
@@ -34,10 +36,14 @@ import { Route as R11PathlessLayoutLegalPrivacyRouteImport } from './routes/11-p
 import { Route as R11PathlessLayoutLegalTermsRouteImport } from './routes/11-pathless-layout/_legal.terms'
 import { Route as R11PathlessLayoutShopCartRouteImport } from './routes/11-pathless-layout/_shop.cart'
 import { Route as R11PathlessLayoutShopProductsRouteImport } from './routes/11-pathless-layout/_shop.products'
-import { Route as R12NonNestedProductsIndexRouteImport } from './routes/12-non-nested/products.index'
-import { Route as R12NonNestedProductsProductIdRouteImport } from './routes/12-non-nested/products.$productId'
-import { Route as R12NonNestedProductsSaleRouteImport } from './routes/12-non-nested/products.sale'
-import { Route as R12NonNestedProductsProductIdCheckoutRouteImport } from './routes/12-non-nested/products_.$productId.checkout'
+import { Route as R12RouteGrouplegalPrivacyRouteImport } from './routes/12-route-group/(legal)/privacy'
+import { Route as R12RouteGrouplegalTermsRouteImport } from './routes/12-route-group/(legal)/terms'
+import { Route as R12RouteGroupshopCartRouteImport } from './routes/12-route-group/(shop)/cart'
+import { Route as R12RouteGroupshopProductsRouteImport } from './routes/12-route-group/(shop)/products'
+import { Route as R13NonNestedProductsIndexRouteImport } from './routes/13-non-nested/products.index'
+import { Route as R13NonNestedProductsProductIdRouteImport } from './routes/13-non-nested/products.$productId'
+import { Route as R13NonNestedProductsSaleRouteImport } from './routes/13-non-nested/products.sale'
+import { Route as R13NonNestedProductsProductIdCheckoutRouteImport } from './routes/13-non-nested/products_.$productId.checkout'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -112,9 +118,19 @@ const R11PathlessLayoutShopRoute = R11PathlessLayoutShopRouteImport.update({
   path: '/11-pathless-layout',
   getParentRoute: () => rootRouteImport,
 } as any)
-const R12NonNestedProductsRoute = R12NonNestedProductsRouteImport.update({
-  id: '/12-non-nested/products',
-  path: '/12-non-nested/products',
+const R12RouteGrouplegalRouteRoute = R12RouteGrouplegalRouteRouteImport.update({
+  id: '/12-route-group/(legal)',
+  path: '/12-route-group',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const R12RouteGroupshopRouteRoute = R12RouteGroupshopRouteRouteImport.update({
+  id: '/12-route-group/(shop)',
+  path: '/12-route-group',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const R13NonNestedProductsRoute = R13NonNestedProductsRouteImport.update({
+  id: '/13-non-nested/products',
+  path: '/13-non-nested/products',
   getParentRoute: () => rootRouteImport,
 } as any)
 const R09LayoutShopIndexRoute = R09LayoutShopIndexRouteImport.update({
@@ -174,28 +190,50 @@ const R11PathlessLayoutShopProductsRoute =
     path: '/products',
     getParentRoute: () => R11PathlessLayoutShopRoute,
   } as any)
-const R12NonNestedProductsIndexRoute =
-  R12NonNestedProductsIndexRouteImport.update({
+const R12RouteGrouplegalPrivacyRoute =
+  R12RouteGrouplegalPrivacyRouteImport.update({
+    id: '/privacy',
+    path: '/privacy',
+    getParentRoute: () => R12RouteGrouplegalRouteRoute,
+  } as any)
+const R12RouteGrouplegalTermsRoute = R12RouteGrouplegalTermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => R12RouteGrouplegalRouteRoute,
+} as any)
+const R12RouteGroupshopCartRoute = R12RouteGroupshopCartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => R12RouteGroupshopRouteRoute,
+} as any)
+const R12RouteGroupshopProductsRoute =
+  R12RouteGroupshopProductsRouteImport.update({
+    id: '/products',
+    path: '/products',
+    getParentRoute: () => R12RouteGroupshopRouteRoute,
+  } as any)
+const R13NonNestedProductsIndexRoute =
+  R13NonNestedProductsIndexRouteImport.update({
     id: '/',
     path: '/',
-    getParentRoute: () => R12NonNestedProductsRoute,
+    getParentRoute: () => R13NonNestedProductsRoute,
   } as any)
-const R12NonNestedProductsProductIdRoute =
-  R12NonNestedProductsProductIdRouteImport.update({
+const R13NonNestedProductsProductIdRoute =
+  R13NonNestedProductsProductIdRouteImport.update({
     id: '/$productId',
     path: '/$productId',
-    getParentRoute: () => R12NonNestedProductsRoute,
+    getParentRoute: () => R13NonNestedProductsRoute,
   } as any)
-const R12NonNestedProductsSaleRoute =
-  R12NonNestedProductsSaleRouteImport.update({
+const R13NonNestedProductsSaleRoute =
+  R13NonNestedProductsSaleRouteImport.update({
     id: '/sale',
     path: '/sale',
-    getParentRoute: () => R12NonNestedProductsRoute,
+    getParentRoute: () => R13NonNestedProductsRoute,
   } as any)
-const R12NonNestedProductsProductIdCheckoutRoute =
-  R12NonNestedProductsProductIdCheckoutRouteImport.update({
-    id: '/12-non-nested/products_/$productId/checkout',
-    path: '/12-non-nested/products/$productId/checkout',
+const R13NonNestedProductsProductIdCheckoutRoute =
+  R13NonNestedProductsProductIdCheckoutRouteImport.update({
+    id: '/13-non-nested/products_/$productId/checkout',
+    path: '/13-non-nested/products/$productId/checkout',
     getParentRoute: () => rootRouteImport,
   } as any)
 
@@ -205,13 +243,14 @@ export interface FileRoutesByFullPath {
   '/02-anatomy-of-a-route': typeof R02AnatomyOfARouteRoute
   '/03-link': typeof R03LinkRoute
   '/10-nested-layout/shop': typeof R10NestedLayoutShopRouteRouteWithChildren
+  '/12-route-group': typeof R12RouteGroupshopRouteRouteWithChildren
   '/05-index-route/child': typeof R05IndexRouteChildRoute
   '/06-dynamic-segment/$productId': typeof R06DynamicSegmentProductIdRoute
   '/07-splat/$': typeof R07SplatSplatRoute
   '/08-optional-param/{-$category}': typeof R08OptionalParamChar123CategoryChar125Route
   '/09-layout/shop': typeof R09LayoutShopRouteWithChildren
   '/11-pathless-layout': typeof R11PathlessLayoutShopRouteWithChildren
-  '/12-non-nested/products': typeof R12NonNestedProductsRouteWithChildren
+  '/13-non-nested/products': typeof R13NonNestedProductsRouteWithChildren
   '/04-colocation/': typeof R04ColocationIndexRoute
   '/05-index-route/': typeof R05IndexRouteIndexRoute
   '/09-layout/shop/about': typeof R09LayoutShopAboutRoute
@@ -222,18 +261,23 @@ export interface FileRoutesByFullPath {
   '/11-pathless-layout/terms': typeof R11PathlessLayoutLegalTermsRoute
   '/11-pathless-layout/cart': typeof R11PathlessLayoutShopCartRoute
   '/11-pathless-layout/products': typeof R11PathlessLayoutShopProductsRoute
-  '/12-non-nested/products/$productId': typeof R12NonNestedProductsProductIdRoute
-  '/12-non-nested/products/sale': typeof R12NonNestedProductsSaleRoute
+  '/12-route-group/privacy': typeof R12RouteGrouplegalPrivacyRoute
+  '/12-route-group/terms': typeof R12RouteGrouplegalTermsRoute
+  '/12-route-group/cart': typeof R12RouteGroupshopCartRoute
+  '/12-route-group/products': typeof R12RouteGroupshopProductsRoute
+  '/13-non-nested/products/$productId': typeof R13NonNestedProductsProductIdRoute
+  '/13-non-nested/products/sale': typeof R13NonNestedProductsSaleRoute
   '/09-layout/shop/': typeof R09LayoutShopIndexRoute
   '/10-nested-layout/shop/': typeof R10NestedLayoutShopIndexRoute
-  '/12-non-nested/products/': typeof R12NonNestedProductsIndexRoute
-  '/12-non-nested/products/$productId/checkout': typeof R12NonNestedProductsProductIdCheckoutRoute
+  '/13-non-nested/products/': typeof R13NonNestedProductsIndexRoute
+  '/13-non-nested/products/$productId/checkout': typeof R13NonNestedProductsProductIdCheckoutRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/01-root-route': typeof R01RootRouteRoute
   '/02-anatomy-of-a-route': typeof R02AnatomyOfARouteRoute
   '/03-link': typeof R03LinkRoute
+  '/12-route-group': typeof R12RouteGroupshopRouteRouteWithChildren
   '/05-index-route/child': typeof R05IndexRouteChildRoute
   '/06-dynamic-segment/$productId': typeof R06DynamicSegmentProductIdRoute
   '/07-splat/$': typeof R07SplatSplatRoute
@@ -249,12 +293,16 @@ export interface FileRoutesByTo {
   '/11-pathless-layout/terms': typeof R11PathlessLayoutLegalTermsRoute
   '/11-pathless-layout/cart': typeof R11PathlessLayoutShopCartRoute
   '/11-pathless-layout/products': typeof R11PathlessLayoutShopProductsRoute
-  '/12-non-nested/products/$productId': typeof R12NonNestedProductsProductIdRoute
-  '/12-non-nested/products/sale': typeof R12NonNestedProductsSaleRoute
+  '/12-route-group/privacy': typeof R12RouteGrouplegalPrivacyRoute
+  '/12-route-group/terms': typeof R12RouteGrouplegalTermsRoute
+  '/12-route-group/cart': typeof R12RouteGroupshopCartRoute
+  '/12-route-group/products': typeof R12RouteGroupshopProductsRoute
+  '/13-non-nested/products/$productId': typeof R13NonNestedProductsProductIdRoute
+  '/13-non-nested/products/sale': typeof R13NonNestedProductsSaleRoute
   '/09-layout/shop': typeof R09LayoutShopIndexRoute
   '/10-nested-layout/shop': typeof R10NestedLayoutShopIndexRoute
-  '/12-non-nested/products': typeof R12NonNestedProductsIndexRoute
-  '/12-non-nested/products/$productId/checkout': typeof R12NonNestedProductsProductIdCheckoutRoute
+  '/13-non-nested/products': typeof R13NonNestedProductsIndexRoute
+  '/13-non-nested/products/$productId/checkout': typeof R13NonNestedProductsProductIdCheckoutRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -263,6 +311,8 @@ export interface FileRoutesById {
   '/02-anatomy-of-a-route': typeof R02AnatomyOfARouteRoute
   '/03-link': typeof R03LinkRoute
   '/10-nested-layout/shop': typeof R10NestedLayoutShopRouteRouteWithChildren
+  '/12-route-group/(legal)': typeof R12RouteGrouplegalRouteRouteWithChildren
+  '/12-route-group/(shop)': typeof R12RouteGroupshopRouteRouteWithChildren
   '/05-index-route/child': typeof R05IndexRouteChildRoute
   '/06-dynamic-segment/$productId': typeof R06DynamicSegmentProductIdRoute
   '/07-splat/$': typeof R07SplatSplatRoute
@@ -270,7 +320,7 @@ export interface FileRoutesById {
   '/09-layout/shop': typeof R09LayoutShopRouteWithChildren
   '/11-pathless-layout/_legal': typeof R11PathlessLayoutLegalRouteWithChildren
   '/11-pathless-layout/_shop': typeof R11PathlessLayoutShopRouteWithChildren
-  '/12-non-nested/products': typeof R12NonNestedProductsRouteWithChildren
+  '/13-non-nested/products': typeof R13NonNestedProductsRouteWithChildren
   '/04-colocation/': typeof R04ColocationIndexRoute
   '/05-index-route/': typeof R05IndexRouteIndexRoute
   '/09-layout/shop/about': typeof R09LayoutShopAboutRoute
@@ -281,12 +331,16 @@ export interface FileRoutesById {
   '/11-pathless-layout/_legal/terms': typeof R11PathlessLayoutLegalTermsRoute
   '/11-pathless-layout/_shop/cart': typeof R11PathlessLayoutShopCartRoute
   '/11-pathless-layout/_shop/products': typeof R11PathlessLayoutShopProductsRoute
-  '/12-non-nested/products/$productId': typeof R12NonNestedProductsProductIdRoute
-  '/12-non-nested/products/sale': typeof R12NonNestedProductsSaleRoute
+  '/12-route-group/(legal)/privacy': typeof R12RouteGrouplegalPrivacyRoute
+  '/12-route-group/(legal)/terms': typeof R12RouteGrouplegalTermsRoute
+  '/12-route-group/(shop)/cart': typeof R12RouteGroupshopCartRoute
+  '/12-route-group/(shop)/products': typeof R12RouteGroupshopProductsRoute
+  '/13-non-nested/products/$productId': typeof R13NonNestedProductsProductIdRoute
+  '/13-non-nested/products/sale': typeof R13NonNestedProductsSaleRoute
   '/09-layout/shop/': typeof R09LayoutShopIndexRoute
   '/10-nested-layout/shop/': typeof R10NestedLayoutShopIndexRoute
-  '/12-non-nested/products/': typeof R12NonNestedProductsIndexRoute
-  '/12-non-nested/products_/$productId/checkout': typeof R12NonNestedProductsProductIdCheckoutRoute
+  '/13-non-nested/products/': typeof R13NonNestedProductsIndexRoute
+  '/13-non-nested/products_/$productId/checkout': typeof R13NonNestedProductsProductIdCheckoutRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -296,13 +350,14 @@ export interface FileRouteTypes {
     | '/02-anatomy-of-a-route'
     | '/03-link'
     | '/10-nested-layout/shop'
+    | '/12-route-group'
     | '/05-index-route/child'
     | '/06-dynamic-segment/$productId'
     | '/07-splat/$'
     | '/08-optional-param/{-$category}'
     | '/09-layout/shop'
     | '/11-pathless-layout'
-    | '/12-non-nested/products'
+    | '/13-non-nested/products'
     | '/04-colocation/'
     | '/05-index-route/'
     | '/09-layout/shop/about'
@@ -313,18 +368,23 @@ export interface FileRouteTypes {
     | '/11-pathless-layout/terms'
     | '/11-pathless-layout/cart'
     | '/11-pathless-layout/products'
-    | '/12-non-nested/products/$productId'
-    | '/12-non-nested/products/sale'
+    | '/12-route-group/privacy'
+    | '/12-route-group/terms'
+    | '/12-route-group/cart'
+    | '/12-route-group/products'
+    | '/13-non-nested/products/$productId'
+    | '/13-non-nested/products/sale'
     | '/09-layout/shop/'
     | '/10-nested-layout/shop/'
-    | '/12-non-nested/products/'
-    | '/12-non-nested/products/$productId/checkout'
+    | '/13-non-nested/products/'
+    | '/13-non-nested/products/$productId/checkout'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/01-root-route'
     | '/02-anatomy-of-a-route'
     | '/03-link'
+    | '/12-route-group'
     | '/05-index-route/child'
     | '/06-dynamic-segment/$productId'
     | '/07-splat/$'
@@ -340,12 +400,16 @@ export interface FileRouteTypes {
     | '/11-pathless-layout/terms'
     | '/11-pathless-layout/cart'
     | '/11-pathless-layout/products'
-    | '/12-non-nested/products/$productId'
-    | '/12-non-nested/products/sale'
+    | '/12-route-group/privacy'
+    | '/12-route-group/terms'
+    | '/12-route-group/cart'
+    | '/12-route-group/products'
+    | '/13-non-nested/products/$productId'
+    | '/13-non-nested/products/sale'
     | '/09-layout/shop'
     | '/10-nested-layout/shop'
-    | '/12-non-nested/products'
-    | '/12-non-nested/products/$productId/checkout'
+    | '/13-non-nested/products'
+    | '/13-non-nested/products/$productId/checkout'
   id:
     | '__root__'
     | '/'
@@ -353,6 +417,8 @@ export interface FileRouteTypes {
     | '/02-anatomy-of-a-route'
     | '/03-link'
     | '/10-nested-layout/shop'
+    | '/12-route-group/(legal)'
+    | '/12-route-group/(shop)'
     | '/05-index-route/child'
     | '/06-dynamic-segment/$productId'
     | '/07-splat/$'
@@ -360,7 +426,7 @@ export interface FileRouteTypes {
     | '/09-layout/shop'
     | '/11-pathless-layout/_legal'
     | '/11-pathless-layout/_shop'
-    | '/12-non-nested/products'
+    | '/13-non-nested/products'
     | '/04-colocation/'
     | '/05-index-route/'
     | '/09-layout/shop/about'
@@ -371,12 +437,16 @@ export interface FileRouteTypes {
     | '/11-pathless-layout/_legal/terms'
     | '/11-pathless-layout/_shop/cart'
     | '/11-pathless-layout/_shop/products'
-    | '/12-non-nested/products/$productId'
-    | '/12-non-nested/products/sale'
+    | '/12-route-group/(legal)/privacy'
+    | '/12-route-group/(legal)/terms'
+    | '/12-route-group/(shop)/cart'
+    | '/12-route-group/(shop)/products'
+    | '/13-non-nested/products/$productId'
+    | '/13-non-nested/products/sale'
     | '/09-layout/shop/'
     | '/10-nested-layout/shop/'
-    | '/12-non-nested/products/'
-    | '/12-non-nested/products_/$productId/checkout'
+    | '/13-non-nested/products/'
+    | '/13-non-nested/products_/$productId/checkout'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -385,6 +455,8 @@ export interface RootRouteChildren {
   R02AnatomyOfARouteRoute: typeof R02AnatomyOfARouteRoute
   R03LinkRoute: typeof R03LinkRoute
   R10NestedLayoutShopRouteRoute: typeof R10NestedLayoutShopRouteRouteWithChildren
+  R12RouteGrouplegalRouteRoute: typeof R12RouteGrouplegalRouteRouteWithChildren
+  R12RouteGroupshopRouteRoute: typeof R12RouteGroupshopRouteRouteWithChildren
   R05IndexRouteChildRoute: typeof R05IndexRouteChildRoute
   R06DynamicSegmentProductIdRoute: typeof R06DynamicSegmentProductIdRoute
   R07SplatSplatRoute: typeof R07SplatSplatRoute
@@ -392,10 +464,10 @@ export interface RootRouteChildren {
   R09LayoutShopRoute: typeof R09LayoutShopRouteWithChildren
   R11PathlessLayoutLegalRoute: typeof R11PathlessLayoutLegalRouteWithChildren
   R11PathlessLayoutShopRoute: typeof R11PathlessLayoutShopRouteWithChildren
-  R12NonNestedProductsRoute: typeof R12NonNestedProductsRouteWithChildren
+  R13NonNestedProductsRoute: typeof R13NonNestedProductsRouteWithChildren
   R04ColocationIndexRoute: typeof R04ColocationIndexRoute
   R05IndexRouteIndexRoute: typeof R05IndexRouteIndexRoute
-  R12NonNestedProductsProductIdCheckoutRoute: typeof R12NonNestedProductsProductIdCheckoutRoute
+  R13NonNestedProductsProductIdCheckoutRoute: typeof R13NonNestedProductsProductIdCheckoutRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -498,11 +570,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof R11PathlessLayoutShopRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/12-non-nested/products': {
-      id: '/12-non-nested/products'
-      path: '/12-non-nested/products'
-      fullPath: '/12-non-nested/products'
-      preLoaderRoute: typeof R12NonNestedProductsRouteImport
+    '/12-route-group/(legal)': {
+      id: '/12-route-group/(legal)'
+      path: '/12-route-group'
+      fullPath: '/12-route-group'
+      preLoaderRoute: typeof R12RouteGrouplegalRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/12-route-group/(shop)': {
+      id: '/12-route-group/(shop)'
+      path: '/12-route-group'
+      fullPath: '/12-route-group'
+      preLoaderRoute: typeof R12RouteGroupshopRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/13-non-nested/products': {
+      id: '/13-non-nested/products'
+      path: '/13-non-nested/products'
+      fullPath: '/13-non-nested/products'
+      preLoaderRoute: typeof R13NonNestedProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/09-layout/shop/': {
@@ -575,32 +661,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof R11PathlessLayoutShopProductsRouteImport
       parentRoute: typeof R11PathlessLayoutShopRoute
     }
-    '/12-non-nested/products/': {
-      id: '/12-non-nested/products/'
+    '/12-route-group/(legal)/privacy': {
+      id: '/12-route-group/(legal)/privacy'
+      path: '/privacy'
+      fullPath: '/12-route-group/privacy'
+      preLoaderRoute: typeof R12RouteGrouplegalPrivacyRouteImport
+      parentRoute: typeof R12RouteGrouplegalRouteRoute
+    }
+    '/12-route-group/(legal)/terms': {
+      id: '/12-route-group/(legal)/terms'
+      path: '/terms'
+      fullPath: '/12-route-group/terms'
+      preLoaderRoute: typeof R12RouteGrouplegalTermsRouteImport
+      parentRoute: typeof R12RouteGrouplegalRouteRoute
+    }
+    '/12-route-group/(shop)/cart': {
+      id: '/12-route-group/(shop)/cart'
+      path: '/cart'
+      fullPath: '/12-route-group/cart'
+      preLoaderRoute: typeof R12RouteGroupshopCartRouteImport
+      parentRoute: typeof R12RouteGroupshopRouteRoute
+    }
+    '/12-route-group/(shop)/products': {
+      id: '/12-route-group/(shop)/products'
+      path: '/products'
+      fullPath: '/12-route-group/products'
+      preLoaderRoute: typeof R12RouteGroupshopProductsRouteImport
+      parentRoute: typeof R12RouteGroupshopRouteRoute
+    }
+    '/13-non-nested/products/': {
+      id: '/13-non-nested/products/'
       path: '/'
-      fullPath: '/12-non-nested/products/'
-      preLoaderRoute: typeof R12NonNestedProductsIndexRouteImport
-      parentRoute: typeof R12NonNestedProductsRoute
+      fullPath: '/13-non-nested/products/'
+      preLoaderRoute: typeof R13NonNestedProductsIndexRouteImport
+      parentRoute: typeof R13NonNestedProductsRoute
     }
-    '/12-non-nested/products/$productId': {
-      id: '/12-non-nested/products/$productId'
+    '/13-non-nested/products/$productId': {
+      id: '/13-non-nested/products/$productId'
       path: '/$productId'
-      fullPath: '/12-non-nested/products/$productId'
-      preLoaderRoute: typeof R12NonNestedProductsProductIdRouteImport
-      parentRoute: typeof R12NonNestedProductsRoute
+      fullPath: '/13-non-nested/products/$productId'
+      preLoaderRoute: typeof R13NonNestedProductsProductIdRouteImport
+      parentRoute: typeof R13NonNestedProductsRoute
     }
-    '/12-non-nested/products/sale': {
-      id: '/12-non-nested/products/sale'
+    '/13-non-nested/products/sale': {
+      id: '/13-non-nested/products/sale'
       path: '/sale'
-      fullPath: '/12-non-nested/products/sale'
-      preLoaderRoute: typeof R12NonNestedProductsSaleRouteImport
-      parentRoute: typeof R12NonNestedProductsRoute
+      fullPath: '/13-non-nested/products/sale'
+      preLoaderRoute: typeof R13NonNestedProductsSaleRouteImport
+      parentRoute: typeof R13NonNestedProductsRoute
     }
-    '/12-non-nested/products_/$productId/checkout': {
-      id: '/12-non-nested/products_/$productId/checkout'
-      path: '/12-non-nested/products/$productId/checkout'
-      fullPath: '/12-non-nested/products/$productId/checkout'
-      preLoaderRoute: typeof R12NonNestedProductsProductIdCheckoutRouteImport
+    '/13-non-nested/products_/$productId/checkout': {
+      id: '/13-non-nested/products_/$productId/checkout'
+      path: '/13-non-nested/products/$productId/checkout'
+      fullPath: '/13-non-nested/products/$productId/checkout'
+      preLoaderRoute: typeof R13NonNestedProductsProductIdCheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -622,6 +736,38 @@ const R10NestedLayoutShopRouteRouteChildren: R10NestedLayoutShopRouteRouteChildr
 const R10NestedLayoutShopRouteRouteWithChildren =
   R10NestedLayoutShopRouteRoute._addFileChildren(
     R10NestedLayoutShopRouteRouteChildren,
+  )
+
+interface R12RouteGrouplegalRouteRouteChildren {
+  R12RouteGrouplegalPrivacyRoute: typeof R12RouteGrouplegalPrivacyRoute
+  R12RouteGrouplegalTermsRoute: typeof R12RouteGrouplegalTermsRoute
+}
+
+const R12RouteGrouplegalRouteRouteChildren: R12RouteGrouplegalRouteRouteChildren =
+  {
+    R12RouteGrouplegalPrivacyRoute: R12RouteGrouplegalPrivacyRoute,
+    R12RouteGrouplegalTermsRoute: R12RouteGrouplegalTermsRoute,
+  }
+
+const R12RouteGrouplegalRouteRouteWithChildren =
+  R12RouteGrouplegalRouteRoute._addFileChildren(
+    R12RouteGrouplegalRouteRouteChildren,
+  )
+
+interface R12RouteGroupshopRouteRouteChildren {
+  R12RouteGroupshopCartRoute: typeof R12RouteGroupshopCartRoute
+  R12RouteGroupshopProductsRoute: typeof R12RouteGroupshopProductsRoute
+}
+
+const R12RouteGroupshopRouteRouteChildren: R12RouteGroupshopRouteRouteChildren =
+  {
+    R12RouteGroupshopCartRoute: R12RouteGroupshopCartRoute,
+    R12RouteGroupshopProductsRoute: R12RouteGroupshopProductsRoute,
+  }
+
+const R12RouteGroupshopRouteRouteWithChildren =
+  R12RouteGroupshopRouteRoute._addFileChildren(
+    R12RouteGroupshopRouteRouteChildren,
   )
 
 interface R09LayoutShopRouteChildren {
@@ -671,20 +817,20 @@ const R11PathlessLayoutShopRouteWithChildren =
     R11PathlessLayoutShopRouteChildren,
   )
 
-interface R12NonNestedProductsRouteChildren {
-  R12NonNestedProductsProductIdRoute: typeof R12NonNestedProductsProductIdRoute
-  R12NonNestedProductsSaleRoute: typeof R12NonNestedProductsSaleRoute
-  R12NonNestedProductsIndexRoute: typeof R12NonNestedProductsIndexRoute
+interface R13NonNestedProductsRouteChildren {
+  R13NonNestedProductsProductIdRoute: typeof R13NonNestedProductsProductIdRoute
+  R13NonNestedProductsSaleRoute: typeof R13NonNestedProductsSaleRoute
+  R13NonNestedProductsIndexRoute: typeof R13NonNestedProductsIndexRoute
 }
 
-const R12NonNestedProductsRouteChildren: R12NonNestedProductsRouteChildren = {
-  R12NonNestedProductsProductIdRoute: R12NonNestedProductsProductIdRoute,
-  R12NonNestedProductsSaleRoute: R12NonNestedProductsSaleRoute,
-  R12NonNestedProductsIndexRoute: R12NonNestedProductsIndexRoute,
+const R13NonNestedProductsRouteChildren: R13NonNestedProductsRouteChildren = {
+  R13NonNestedProductsProductIdRoute: R13NonNestedProductsProductIdRoute,
+  R13NonNestedProductsSaleRoute: R13NonNestedProductsSaleRoute,
+  R13NonNestedProductsIndexRoute: R13NonNestedProductsIndexRoute,
 }
 
-const R12NonNestedProductsRouteWithChildren =
-  R12NonNestedProductsRoute._addFileChildren(R12NonNestedProductsRouteChildren)
+const R13NonNestedProductsRouteWithChildren =
+  R13NonNestedProductsRoute._addFileChildren(R13NonNestedProductsRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -692,6 +838,8 @@ const rootRouteChildren: RootRouteChildren = {
   R02AnatomyOfARouteRoute: R02AnatomyOfARouteRoute,
   R03LinkRoute: R03LinkRoute,
   R10NestedLayoutShopRouteRoute: R10NestedLayoutShopRouteRouteWithChildren,
+  R12RouteGrouplegalRouteRoute: R12RouteGrouplegalRouteRouteWithChildren,
+  R12RouteGroupshopRouteRoute: R12RouteGroupshopRouteRouteWithChildren,
   R05IndexRouteChildRoute: R05IndexRouteChildRoute,
   R06DynamicSegmentProductIdRoute: R06DynamicSegmentProductIdRoute,
   R07SplatSplatRoute: R07SplatSplatRoute,
@@ -700,11 +848,11 @@ const rootRouteChildren: RootRouteChildren = {
   R09LayoutShopRoute: R09LayoutShopRouteWithChildren,
   R11PathlessLayoutLegalRoute: R11PathlessLayoutLegalRouteWithChildren,
   R11PathlessLayoutShopRoute: R11PathlessLayoutShopRouteWithChildren,
-  R12NonNestedProductsRoute: R12NonNestedProductsRouteWithChildren,
+  R13NonNestedProductsRoute: R13NonNestedProductsRouteWithChildren,
   R04ColocationIndexRoute: R04ColocationIndexRoute,
   R05IndexRouteIndexRoute: R05IndexRouteIndexRoute,
-  R12NonNestedProductsProductIdCheckoutRoute:
-    R12NonNestedProductsProductIdCheckoutRoute,
+  R13NonNestedProductsProductIdCheckoutRoute:
+    R13NonNestedProductsProductIdCheckoutRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
