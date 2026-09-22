@@ -28,6 +28,7 @@ import { Route as R12RouteGroupshopRouteRouteImport } from './routes/12-route-gr
 import { Route as R13NonNestedProductsRouteImport } from './routes/13-non-nested/products'
 import { Route as R14RouteMatchingAboutRouteImport } from './routes/14-route-matching/about'
 import { Route as R14RouteMatchingProductsRouteImport } from './routes/14-route-matching/products'
+import { Route as R15EscapeCharactersSitemapDotxmlRouteImport } from './routes/15-escape-characters/sitemap[.]xml'
 import { Route as R09LayoutShopIndexRouteImport } from './routes/09-layout/shop.index'
 import { Route as R09LayoutShopAboutRouteImport } from './routes/09-layout/shop.about'
 import { Route as R09LayoutShopProductsRouteImport } from './routes/09-layout/shop.products'
@@ -49,6 +50,7 @@ import { Route as R14RouteMatchingProductsIndexRouteImport } from './routes/14-r
 import { Route as R14RouteMatchingProductsSplatRouteImport } from './routes/14-route-matching/products.$'
 import { Route as R14RouteMatchingProductsProductIdRouteImport } from './routes/14-route-matching/products.$productId'
 import { Route as R14RouteMatchingProductsSpecialOfferRouteImport } from './routes/14-route-matching/products.specialOffer'
+import { Route as R15EscapeCharactersSitemapXmlRouteImport } from './routes/15-escape-characters/sitemap.xml'
 import { Route as R13NonNestedProductsProductIdCheckoutRouteImport } from './routes/13-non-nested/products_.$productId.checkout'
 
 const IndexRoute = IndexRouteImport.update({
@@ -110,9 +112,9 @@ const R09LayoutShopRoute = R09LayoutShopRouteImport.update({
 } as any)
 const R10NestedLayoutShopRouteRoute =
   R10NestedLayoutShopRouteRouteImport.update({
-    id: '/shop',
-    path: '/shop',
-    getParentRoute: () => R10NestedLayoutRouteRoute,
+    id: '/10-nested-layout/shop',
+    path: '/10-nested-layout/shop',
+    getParentRoute: () => rootRouteImport,
   } as any)
 const R11PathlessLayoutLegalRoute = R11PathlessLayoutLegalRouteImport.update({
   id: '/11-pathless-layout/_legal',
@@ -148,6 +150,12 @@ const R14RouteMatchingProductsRoute =
   R14RouteMatchingProductsRouteImport.update({
     id: '/14-route-matching/products',
     path: '/14-route-matching/products',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const R15EscapeCharactersSitemapDotxmlRoute =
+  R15EscapeCharactersSitemapDotxmlRouteImport.update({
+    id: '/15-escape-characters/sitemap.xml',
+    path: '/15-escape-characters/sitemap.xml',
     getParentRoute: () => rootRouteImport,
   } as any)
 const R09LayoutShopIndexRoute = R09LayoutShopIndexRouteImport.update({
@@ -271,6 +279,12 @@ const R14RouteMatchingProductsSpecialOfferRoute =
     path: '/specialOffer',
     getParentRoute: () => R14RouteMatchingProductsRoute,
   } as any)
+const R15EscapeCharactersSitemapXmlRoute =
+  R15EscapeCharactersSitemapXmlRouteImport.update({
+    id: '/15-escape-characters/sitemap/xml',
+    path: '/15-escape-characters/sitemap/xml',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const R13NonNestedProductsProductIdCheckoutRoute =
   R13NonNestedProductsProductIdCheckoutRouteImport.update({
     id: '/13-non-nested/products_/$productId/checkout',
@@ -294,6 +308,7 @@ export interface FileRoutesByFullPath {
   '/13-non-nested/products': typeof R13NonNestedProductsRouteWithChildren
   '/14-route-matching/about': typeof R14RouteMatchingAboutRoute
   '/14-route-matching/products': typeof R14RouteMatchingProductsRouteWithChildren
+  '/15-escape-characters/sitemap.xml': typeof R15EscapeCharactersSitemapDotxmlRoute
   '/04-colocation/': typeof R04ColocationIndexRoute
   '/05-index-route/': typeof R05IndexRouteIndexRoute
   '/09-layout/shop/about': typeof R09LayoutShopAboutRoute
@@ -313,6 +328,7 @@ export interface FileRoutesByFullPath {
   '/14-route-matching/products/$': typeof R14RouteMatchingProductsSplatRoute
   '/14-route-matching/products/$productId': typeof R14RouteMatchingProductsProductIdRoute
   '/14-route-matching/products/specialOffer': typeof R14RouteMatchingProductsSpecialOfferRoute
+  '/15-escape-characters/sitemap/xml': typeof R15EscapeCharactersSitemapXmlRoute
   '/09-layout/shop/': typeof R09LayoutShopIndexRoute
   '/10-nested-layout/shop/': typeof R10NestedLayoutShopIndexRoute
   '/13-non-nested/products/': typeof R13NonNestedProductsIndexRoute
@@ -331,6 +347,7 @@ export interface FileRoutesByTo {
   '/08-optional-param/{-$category}': typeof R08OptionalParamChar123CategoryChar125Route
   '/11-pathless-layout': typeof R11PathlessLayoutShopRouteWithChildren
   '/14-route-matching/about': typeof R14RouteMatchingAboutRoute
+  '/15-escape-characters/sitemap.xml': typeof R15EscapeCharactersSitemapDotxmlRoute
   '/04-colocation': typeof R04ColocationIndexRoute
   '/05-index-route': typeof R05IndexRouteIndexRoute
   '/09-layout/shop/about': typeof R09LayoutShopAboutRoute
@@ -350,6 +367,7 @@ export interface FileRoutesByTo {
   '/14-route-matching/products/$': typeof R14RouteMatchingProductsSplatRoute
   '/14-route-matching/products/$productId': typeof R14RouteMatchingProductsProductIdRoute
   '/14-route-matching/products/specialOffer': typeof R14RouteMatchingProductsSpecialOfferRoute
+  '/15-escape-characters/sitemap/xml': typeof R15EscapeCharactersSitemapXmlRoute
   '/09-layout/shop': typeof R09LayoutShopIndexRoute
   '/10-nested-layout/shop': typeof R10NestedLayoutShopIndexRoute
   '/13-non-nested/products': typeof R13NonNestedProductsIndexRoute
@@ -375,6 +393,7 @@ export interface FileRoutesById {
   '/13-non-nested/products': typeof R13NonNestedProductsRouteWithChildren
   '/14-route-matching/about': typeof R14RouteMatchingAboutRoute
   '/14-route-matching/products': typeof R14RouteMatchingProductsRouteWithChildren
+  '/15-escape-characters/sitemap.xml': typeof R15EscapeCharactersSitemapDotxmlRoute
   '/04-colocation/': typeof R04ColocationIndexRoute
   '/05-index-route/': typeof R05IndexRouteIndexRoute
   '/09-layout/shop/about': typeof R09LayoutShopAboutRoute
@@ -394,6 +413,7 @@ export interface FileRoutesById {
   '/14-route-matching/products/$': typeof R14RouteMatchingProductsSplatRoute
   '/14-route-matching/products/$productId': typeof R14RouteMatchingProductsProductIdRoute
   '/14-route-matching/products/specialOffer': typeof R14RouteMatchingProductsSpecialOfferRoute
+  '/15-escape-characters/sitemap/xml': typeof R15EscapeCharactersSitemapXmlRoute
   '/09-layout/shop/': typeof R09LayoutShopIndexRoute
   '/10-nested-layout/shop/': typeof R10NestedLayoutShopIndexRoute
   '/13-non-nested/products/': typeof R13NonNestedProductsIndexRoute
@@ -418,6 +438,7 @@ export interface FileRouteTypes {
     | '/13-non-nested/products'
     | '/14-route-matching/about'
     | '/14-route-matching/products'
+    | '/15-escape-characters/sitemap.xml'
     | '/04-colocation/'
     | '/05-index-route/'
     | '/09-layout/shop/about'
@@ -437,6 +458,7 @@ export interface FileRouteTypes {
     | '/14-route-matching/products/$'
     | '/14-route-matching/products/$productId'
     | '/14-route-matching/products/specialOffer'
+    | '/15-escape-characters/sitemap/xml'
     | '/09-layout/shop/'
     | '/10-nested-layout/shop/'
     | '/13-non-nested/products/'
@@ -455,6 +477,7 @@ export interface FileRouteTypes {
     | '/08-optional-param/{-$category}'
     | '/11-pathless-layout'
     | '/14-route-matching/about'
+    | '/15-escape-characters/sitemap.xml'
     | '/04-colocation'
     | '/05-index-route'
     | '/09-layout/shop/about'
@@ -474,6 +497,7 @@ export interface FileRouteTypes {
     | '/14-route-matching/products/$'
     | '/14-route-matching/products/$productId'
     | '/14-route-matching/products/specialOffer'
+    | '/15-escape-characters/sitemap/xml'
     | '/09-layout/shop'
     | '/10-nested-layout/shop'
     | '/13-non-nested/products'
@@ -498,6 +522,7 @@ export interface FileRouteTypes {
     | '/13-non-nested/products'
     | '/14-route-matching/about'
     | '/14-route-matching/products'
+    | '/15-escape-characters/sitemap.xml'
     | '/04-colocation/'
     | '/05-index-route/'
     | '/09-layout/shop/about'
@@ -517,6 +542,7 @@ export interface FileRouteTypes {
     | '/14-route-matching/products/$'
     | '/14-route-matching/products/$productId'
     | '/14-route-matching/products/specialOffer'
+    | '/15-escape-characters/sitemap/xml'
     | '/09-layout/shop/'
     | '/10-nested-layout/shop/'
     | '/13-non-nested/products/'
@@ -529,6 +555,7 @@ export interface RootRouteChildren {
   R01RootRouteRoute: typeof R01RootRouteRoute
   R02AnatomyOfARouteRoute: typeof R02AnatomyOfARouteRoute
   R03LinkRoute: typeof R03LinkRoute
+  R10NestedLayoutShopRouteRoute: typeof R10NestedLayoutShopRouteRouteWithChildren
   R12RouteGrouplegalRouteRoute: typeof R12RouteGrouplegalRouteRouteWithChildren
   R12RouteGroupshopRouteRoute: typeof R12RouteGroupshopRouteRouteWithChildren
   R05IndexRouteChildRoute: typeof R05IndexRouteChildRoute
@@ -541,8 +568,10 @@ export interface RootRouteChildren {
   R13NonNestedProductsRoute: typeof R13NonNestedProductsRouteWithChildren
   R14RouteMatchingAboutRoute: typeof R14RouteMatchingAboutRoute
   R14RouteMatchingProductsRoute: typeof R14RouteMatchingProductsRouteWithChildren
+  R15EscapeCharactersSitemapDotxmlRoute: typeof R15EscapeCharactersSitemapDotxmlRoute
   R04ColocationIndexRoute: typeof R04ColocationIndexRoute
   R05IndexRouteIndexRoute: typeof R05IndexRouteIndexRoute
+  R15EscapeCharactersSitemapXmlRoute: typeof R15EscapeCharactersSitemapXmlRoute
   R13NonNestedProductsProductIdCheckoutRoute: typeof R13NonNestedProductsProductIdCheckoutRoute
 }
 
@@ -627,10 +656,10 @@ declare module '@tanstack/react-router' {
     }
     '/10-nested-layout/shop': {
       id: '/10-nested-layout/shop'
-      path: '/shop'
+      path: '/10-nested-layout/shop'
       fullPath: '/10-nested-layout/shop'
       preLoaderRoute: typeof R10NestedLayoutShopRouteRouteImport
-      parentRoute: typeof R10NestedLayoutRouteRoute
+      parentRoute: typeof rootRouteImport
     }
     '/11-pathless-layout/_legal': {
       id: '/11-pathless-layout/_legal'
@@ -679,6 +708,13 @@ declare module '@tanstack/react-router' {
       path: '/14-route-matching/products'
       fullPath: '/14-route-matching/products'
       preLoaderRoute: typeof R14RouteMatchingProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/15-escape-characters/sitemap.xml': {
+      id: '/15-escape-characters/sitemap.xml'
+      path: '/15-escape-characters/sitemap.xml'
+      fullPath: '/15-escape-characters/sitemap.xml'
+      preLoaderRoute: typeof R15EscapeCharactersSitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/09-layout/shop/': {
@@ -828,6 +864,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof R14RouteMatchingProductsSpecialOfferRouteImport
       parentRoute: typeof R14RouteMatchingProductsRoute
     }
+    '/15-escape-characters/sitemap/xml': {
+      id: '/15-escape-characters/sitemap/xml'
+      path: '/15-escape-characters/sitemap/xml'
+      fullPath: '/15-escape-characters/sitemap/xml'
+      preLoaderRoute: typeof R15EscapeCharactersSitemapXmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/13-non-nested/products_/$productId/checkout': {
       id: '/13-non-nested/products_/$productId/checkout'
       path: '/13-non-nested/products/$productId/checkout'
@@ -837,6 +880,24 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface R10NestedLayoutShopRouteRouteChildren {
+  R10NestedLayoutShopAboutRoute: typeof R10NestedLayoutShopAboutRoute
+  R10NestedLayoutShopProductsRoute: typeof R10NestedLayoutShopProductsRoute
+  R10NestedLayoutShopIndexRoute: typeof R10NestedLayoutShopIndexRoute
+}
+
+const R10NestedLayoutShopRouteRouteChildren: R10NestedLayoutShopRouteRouteChildren =
+  {
+    R10NestedLayoutShopAboutRoute: R10NestedLayoutShopAboutRoute,
+    R10NestedLayoutShopProductsRoute: R10NestedLayoutShopProductsRoute,
+    R10NestedLayoutShopIndexRoute: R10NestedLayoutShopIndexRoute,
+  }
+
+const R10NestedLayoutShopRouteRouteWithChildren =
+  R10NestedLayoutShopRouteRoute._addFileChildren(
+    R10NestedLayoutShopRouteRouteChildren,
+  )
 
 interface R12RouteGrouplegalRouteRouteChildren {
   R12RouteGrouplegalPrivacyRoute: typeof R12RouteGrouplegalPrivacyRoute
@@ -959,6 +1020,7 @@ const rootRouteChildren: RootRouteChildren = {
   R01RootRouteRoute: R01RootRouteRoute,
   R02AnatomyOfARouteRoute: R02AnatomyOfARouteRoute,
   R03LinkRoute: R03LinkRoute,
+  R10NestedLayoutShopRouteRoute: R10NestedLayoutShopRouteRouteWithChildren,
   R12RouteGrouplegalRouteRoute: R12RouteGrouplegalRouteRouteWithChildren,
   R12RouteGroupshopRouteRoute: R12RouteGroupshopRouteRouteWithChildren,
   R05IndexRouteChildRoute: R05IndexRouteChildRoute,
@@ -972,8 +1034,10 @@ const rootRouteChildren: RootRouteChildren = {
   R13NonNestedProductsRoute: R13NonNestedProductsRouteWithChildren,
   R14RouteMatchingAboutRoute: R14RouteMatchingAboutRoute,
   R14RouteMatchingProductsRoute: R14RouteMatchingProductsRouteWithChildren,
+  R15EscapeCharactersSitemapDotxmlRoute: R15EscapeCharactersSitemapDotxmlRoute,
   R04ColocationIndexRoute: R04ColocationIndexRoute,
   R05IndexRouteIndexRoute: R05IndexRouteIndexRoute,
+  R15EscapeCharactersSitemapXmlRoute: R15EscapeCharactersSitemapXmlRoute,
   R13NonNestedProductsProductIdCheckoutRoute:
     R13NonNestedProductsProductIdCheckoutRoute,
 }

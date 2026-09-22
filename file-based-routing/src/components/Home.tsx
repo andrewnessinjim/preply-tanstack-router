@@ -47,6 +47,7 @@ const introExamples = [
   },
   { title: 'Non-Nested Routes', to: '/13-non-nested/products' },
   { title: 'Route Matching', to: '/14-route-matching/products' },
+  { title: 'Escape Characters', to: '/15-escape-characters/sitemap.xml' },
 ] as const
 
 export function Home() {
