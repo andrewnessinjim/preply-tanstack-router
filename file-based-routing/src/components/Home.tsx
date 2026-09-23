@@ -58,6 +58,11 @@ const introExamples = [
     to: '/17-url-rewrites/products/$productId',
     params: { productId: '7' },
   },
+  {
+    title: 'Search Params',
+    to: '/18-search-params/products',
+    search: { q: '' },
+  },
 ] as const
 
 export function Home() {
@@ -89,6 +94,7 @@ export function Home() {
                 <Link
                   to={example.to}
                   params={'params' in example ? example.params : undefined}
+                  search={'search' in example ? example.search : undefined}
                   className="font-medium text-slate-100 hover:text-indigo-300"
                 >
                   {example.title}
