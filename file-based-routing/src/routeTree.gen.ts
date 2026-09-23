@@ -32,6 +32,8 @@ import { Route as R15RouteMatchingProductsRouteImport } from './routes/15-route-
 import { Route as R16EscapeCharactersSitemapDotxmlRouteImport } from './routes/16-escape-characters/sitemap[.]xml'
 import { Route as R18SearchStringNoReplaceProductsRouteImport } from './routes/18-search-string-no-replace/products'
 import { Route as R19SearchStringReplaceProductsRouteImport } from './routes/19-search-string-replace/products'
+import { Route as R20SearchJsonProductsRouteImport } from './routes/20-search-json/products'
+import { Route as R21SearchJsonZodProductsRouteImport } from './routes/21-search-json-zod/products'
 import { Route as R09LayoutShopIndexRouteImport } from './routes/09-layout/shop.index'
 import { Route as R09LayoutShopAboutRouteImport } from './routes/09-layout/shop.about'
 import { Route as R09LayoutShopProductsRouteImport } from './routes/09-layout/shop.products'
@@ -177,6 +179,17 @@ const R19SearchStringReplaceProductsRoute =
   R19SearchStringReplaceProductsRouteImport.update({
     id: '/19-search-string-replace/products',
     path: '/19-search-string-replace/products',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const R20SearchJsonProductsRoute = R20SearchJsonProductsRouteImport.update({
+  id: '/20-search-json/products',
+  path: '/20-search-json/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const R21SearchJsonZodProductsRoute =
+  R21SearchJsonZodProductsRouteImport.update({
+    id: '/21-search-json-zod/products',
+    path: '/21-search-json-zod/products',
     getParentRoute: () => rootRouteImport,
   } as any)
 const R09LayoutShopIndexRoute = R09LayoutShopIndexRouteImport.update({
@@ -339,6 +352,8 @@ export interface FileRoutesByFullPath {
   '/16-escape-characters/sitemap.xml': typeof R16EscapeCharactersSitemapDotxmlRoute
   '/18-search-string-no-replace/products': typeof R18SearchStringNoReplaceProductsRoute
   '/19-search-string-replace/products': typeof R19SearchStringReplaceProductsRoute
+  '/20-search-json/products': typeof R20SearchJsonProductsRoute
+  '/21-search-json-zod/products': typeof R21SearchJsonZodProductsRoute
   '/04-colocation/': typeof R04ColocationIndexRoute
   '/05-index-route/': typeof R05IndexRouteIndexRoute
   '/09-layout/shop/about': typeof R09LayoutShopAboutRoute
@@ -382,6 +397,8 @@ export interface FileRoutesByTo {
   '/16-escape-characters/sitemap.xml': typeof R16EscapeCharactersSitemapDotxmlRoute
   '/18-search-string-no-replace/products': typeof R18SearchStringNoReplaceProductsRoute
   '/19-search-string-replace/products': typeof R19SearchStringReplaceProductsRoute
+  '/20-search-json/products': typeof R20SearchJsonProductsRoute
+  '/21-search-json-zod/products': typeof R21SearchJsonZodProductsRoute
   '/04-colocation': typeof R04ColocationIndexRoute
   '/05-index-route': typeof R05IndexRouteIndexRoute
   '/09-layout/shop/about': typeof R09LayoutShopAboutRoute
@@ -432,6 +449,8 @@ export interface FileRoutesById {
   '/16-escape-characters/sitemap.xml': typeof R16EscapeCharactersSitemapDotxmlRoute
   '/18-search-string-no-replace/products': typeof R18SearchStringNoReplaceProductsRoute
   '/19-search-string-replace/products': typeof R19SearchStringReplaceProductsRoute
+  '/20-search-json/products': typeof R20SearchJsonProductsRoute
+  '/21-search-json-zod/products': typeof R21SearchJsonZodProductsRoute
   '/04-colocation/': typeof R04ColocationIndexRoute
   '/05-index-route/': typeof R05IndexRouteIndexRoute
   '/09-layout/shop/about': typeof R09LayoutShopAboutRoute
@@ -481,6 +500,8 @@ export interface FileRouteTypes {
     | '/16-escape-characters/sitemap.xml'
     | '/18-search-string-no-replace/products'
     | '/19-search-string-replace/products'
+    | '/20-search-json/products'
+    | '/21-search-json-zod/products'
     | '/04-colocation/'
     | '/05-index-route/'
     | '/09-layout/shop/about'
@@ -524,6 +545,8 @@ export interface FileRouteTypes {
     | '/16-escape-characters/sitemap.xml'
     | '/18-search-string-no-replace/products'
     | '/19-search-string-replace/products'
+    | '/20-search-json/products'
+    | '/21-search-json-zod/products'
     | '/04-colocation'
     | '/05-index-route'
     | '/09-layout/shop/about'
@@ -573,6 +596,8 @@ export interface FileRouteTypes {
     | '/16-escape-characters/sitemap.xml'
     | '/18-search-string-no-replace/products'
     | '/19-search-string-replace/products'
+    | '/20-search-json/products'
+    | '/21-search-json-zod/products'
     | '/04-colocation/'
     | '/05-index-route/'
     | '/09-layout/shop/about'
@@ -623,6 +648,8 @@ export interface RootRouteChildren {
   R16EscapeCharactersSitemapDotxmlRoute: typeof R16EscapeCharactersSitemapDotxmlRoute
   R18SearchStringNoReplaceProductsRoute: typeof R18SearchStringNoReplaceProductsRoute
   R19SearchStringReplaceProductsRoute: typeof R19SearchStringReplaceProductsRoute
+  R20SearchJsonProductsRoute: typeof R20SearchJsonProductsRoute
+  R21SearchJsonZodProductsRoute: typeof R21SearchJsonZodProductsRoute
   R04ColocationIndexRoute: typeof R04ColocationIndexRoute
   R05IndexRouteIndexRoute: typeof R05IndexRouteIndexRoute
   R16EscapeCharactersSitemapXmlRoute: typeof R16EscapeCharactersSitemapXmlRoute
@@ -791,6 +818,20 @@ declare module '@tanstack/react-router' {
       path: '/19-search-string-replace/products'
       fullPath: '/19-search-string-replace/products'
       preLoaderRoute: typeof R19SearchStringReplaceProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/20-search-json/products': {
+      id: '/20-search-json/products'
+      path: '/20-search-json/products'
+      fullPath: '/20-search-json/products'
+      preLoaderRoute: typeof R20SearchJsonProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/21-search-json-zod/products': {
+      id: '/21-search-json-zod/products'
+      path: '/21-search-json-zod/products'
+      fullPath: '/21-search-json-zod/products'
+      preLoaderRoute: typeof R21SearchJsonZodProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/09-layout/shop/': {
@@ -1121,6 +1162,8 @@ const rootRouteChildren: RootRouteChildren = {
   R16EscapeCharactersSitemapDotxmlRoute: R16EscapeCharactersSitemapDotxmlRoute,
   R18SearchStringNoReplaceProductsRoute: R18SearchStringNoReplaceProductsRoute,
   R19SearchStringReplaceProductsRoute: R19SearchStringReplaceProductsRoute,
+  R20SearchJsonProductsRoute: R20SearchJsonProductsRoute,
+  R21SearchJsonZodProductsRoute: R21SearchJsonZodProductsRoute,
   R04ColocationIndexRoute: R04ColocationIndexRoute,
   R05IndexRouteIndexRoute: R05IndexRouteIndexRoute,
   R16EscapeCharactersSitemapXmlRoute: R16EscapeCharactersSitemapXmlRoute,

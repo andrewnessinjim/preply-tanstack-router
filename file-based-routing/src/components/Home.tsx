@@ -1,4 +1,19 @@
 import { Link } from '@tanstack/react-router'
+import type { FileRouteTypes } from '../routeTree.gen'
+
+type IntroExamplePath = FileRouteTypes['to']
+
+type IntroExample =
+  | {
+      title: string
+      to: IntroExamplePath
+      params?: Record<string, unknown>
+      search?: Record<string, unknown>
+    }
+  | {
+      title: string
+      links: ReadonlyArray<{ to: IntroExamplePath; label: string }>
+    }
 
 const introExamples = [
   { title: 'The Root Route', to: '/01-root-route' },
@@ -68,7 +83,29 @@ const introExamples = [
     to: '/19-search-string-replace/products',
     search: { q: '' },
   },
-] as const
+  {
+    title: 'Search Params: JSON',
+    to: '/20-search-json/products',
+    search: {
+      q: undefined,
+      maxPrice: undefined,
+      category: undefined,
+      sortBy: 'name',
+      sortDir: 'asc',
+    },
+  },
+  {
+    title: 'Search Params: Zod',
+    to: '/21-search-json-zod/products',
+    search: {
+      q: undefined,
+      maxPrice: undefined,
+      category: undefined,
+      sortBy: 'name',
+      sortDir: 'asc',
+    },
+  },
+] as const satisfies ReadonlyArray<IntroExample>
 
 export function Home() {
   return (
