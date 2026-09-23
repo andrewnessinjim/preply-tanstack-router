@@ -30,7 +30,8 @@ import { Route as R14UseLocationCategoryRouteImport } from './routes/14-use-loca
 import { Route as R15RouteMatchingAboutRouteImport } from './routes/15-route-matching/about'
 import { Route as R15RouteMatchingProductsRouteImport } from './routes/15-route-matching/products'
 import { Route as R16EscapeCharactersSitemapDotxmlRouteImport } from './routes/16-escape-characters/sitemap[.]xml'
-import { Route as R18SearchParamsProductsRouteImport } from './routes/18-search-params/products'
+import { Route as R18SearchStringNoReplaceProductsRouteImport } from './routes/18-search-string-no-replace/products'
+import { Route as R19SearchStringReplaceProductsRouteImport } from './routes/19-search-string-replace/products'
 import { Route as R09LayoutShopIndexRouteImport } from './routes/09-layout/shop.index'
 import { Route as R09LayoutShopAboutRouteImport } from './routes/09-layout/shop.about'
 import { Route as R09LayoutShopProductsRouteImport } from './routes/09-layout/shop.products'
@@ -166,11 +167,18 @@ const R16EscapeCharactersSitemapDotxmlRoute =
     path: '/16-escape-characters/sitemap.xml',
     getParentRoute: () => rootRouteImport,
   } as any)
-const R18SearchParamsProductsRoute = R18SearchParamsProductsRouteImport.update({
-  id: '/18-search-params/products',
-  path: '/18-search-params/products',
-  getParentRoute: () => rootRouteImport,
-} as any)
+const R18SearchStringNoReplaceProductsRoute =
+  R18SearchStringNoReplaceProductsRouteImport.update({
+    id: '/18-search-string-no-replace/products',
+    path: '/18-search-string-no-replace/products',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const R19SearchStringReplaceProductsRoute =
+  R19SearchStringReplaceProductsRouteImport.update({
+    id: '/19-search-string-replace/products',
+    path: '/19-search-string-replace/products',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const R09LayoutShopIndexRoute = R09LayoutShopIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -329,7 +337,8 @@ export interface FileRoutesByFullPath {
   '/15-route-matching/about': typeof R15RouteMatchingAboutRoute
   '/15-route-matching/products': typeof R15RouteMatchingProductsRouteWithChildren
   '/16-escape-characters/sitemap.xml': typeof R16EscapeCharactersSitemapDotxmlRoute
-  '/18-search-params/products': typeof R18SearchParamsProductsRoute
+  '/18-search-string-no-replace/products': typeof R18SearchStringNoReplaceProductsRoute
+  '/19-search-string-replace/products': typeof R19SearchStringReplaceProductsRoute
   '/04-colocation/': typeof R04ColocationIndexRoute
   '/05-index-route/': typeof R05IndexRouteIndexRoute
   '/09-layout/shop/about': typeof R09LayoutShopAboutRoute
@@ -371,7 +380,8 @@ export interface FileRoutesByTo {
   '/14-use-location/$category': typeof R14UseLocationCategoryRoute
   '/15-route-matching/about': typeof R15RouteMatchingAboutRoute
   '/16-escape-characters/sitemap.xml': typeof R16EscapeCharactersSitemapDotxmlRoute
-  '/18-search-params/products': typeof R18SearchParamsProductsRoute
+  '/18-search-string-no-replace/products': typeof R18SearchStringNoReplaceProductsRoute
+  '/19-search-string-replace/products': typeof R19SearchStringReplaceProductsRoute
   '/04-colocation': typeof R04ColocationIndexRoute
   '/05-index-route': typeof R05IndexRouteIndexRoute
   '/09-layout/shop/about': typeof R09LayoutShopAboutRoute
@@ -420,7 +430,8 @@ export interface FileRoutesById {
   '/15-route-matching/about': typeof R15RouteMatchingAboutRoute
   '/15-route-matching/products': typeof R15RouteMatchingProductsRouteWithChildren
   '/16-escape-characters/sitemap.xml': typeof R16EscapeCharactersSitemapDotxmlRoute
-  '/18-search-params/products': typeof R18SearchParamsProductsRoute
+  '/18-search-string-no-replace/products': typeof R18SearchStringNoReplaceProductsRoute
+  '/19-search-string-replace/products': typeof R19SearchStringReplaceProductsRoute
   '/04-colocation/': typeof R04ColocationIndexRoute
   '/05-index-route/': typeof R05IndexRouteIndexRoute
   '/09-layout/shop/about': typeof R09LayoutShopAboutRoute
@@ -468,7 +479,8 @@ export interface FileRouteTypes {
     | '/15-route-matching/about'
     | '/15-route-matching/products'
     | '/16-escape-characters/sitemap.xml'
-    | '/18-search-params/products'
+    | '/18-search-string-no-replace/products'
+    | '/19-search-string-replace/products'
     | '/04-colocation/'
     | '/05-index-route/'
     | '/09-layout/shop/about'
@@ -510,7 +522,8 @@ export interface FileRouteTypes {
     | '/14-use-location/$category'
     | '/15-route-matching/about'
     | '/16-escape-characters/sitemap.xml'
-    | '/18-search-params/products'
+    | '/18-search-string-no-replace/products'
+    | '/19-search-string-replace/products'
     | '/04-colocation'
     | '/05-index-route'
     | '/09-layout/shop/about'
@@ -558,7 +571,8 @@ export interface FileRouteTypes {
     | '/15-route-matching/about'
     | '/15-route-matching/products'
     | '/16-escape-characters/sitemap.xml'
-    | '/18-search-params/products'
+    | '/18-search-string-no-replace/products'
+    | '/19-search-string-replace/products'
     | '/04-colocation/'
     | '/05-index-route/'
     | '/09-layout/shop/about'
@@ -607,7 +621,8 @@ export interface RootRouteChildren {
   R15RouteMatchingAboutRoute: typeof R15RouteMatchingAboutRoute
   R15RouteMatchingProductsRoute: typeof R15RouteMatchingProductsRouteWithChildren
   R16EscapeCharactersSitemapDotxmlRoute: typeof R16EscapeCharactersSitemapDotxmlRoute
-  R18SearchParamsProductsRoute: typeof R18SearchParamsProductsRoute
+  R18SearchStringNoReplaceProductsRoute: typeof R18SearchStringNoReplaceProductsRoute
+  R19SearchStringReplaceProductsRoute: typeof R19SearchStringReplaceProductsRoute
   R04ColocationIndexRoute: typeof R04ColocationIndexRoute
   R05IndexRouteIndexRoute: typeof R05IndexRouteIndexRoute
   R16EscapeCharactersSitemapXmlRoute: typeof R16EscapeCharactersSitemapXmlRoute
@@ -764,11 +779,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof R16EscapeCharactersSitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/18-search-params/products': {
-      id: '/18-search-params/products'
-      path: '/18-search-params/products'
-      fullPath: '/18-search-params/products'
-      preLoaderRoute: typeof R18SearchParamsProductsRouteImport
+    '/18-search-string-no-replace/products': {
+      id: '/18-search-string-no-replace/products'
+      path: '/18-search-string-no-replace/products'
+      fullPath: '/18-search-string-no-replace/products'
+      preLoaderRoute: typeof R18SearchStringNoReplaceProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/19-search-string-replace/products': {
+      id: '/19-search-string-replace/products'
+      path: '/19-search-string-replace/products'
+      fullPath: '/19-search-string-replace/products'
+      preLoaderRoute: typeof R19SearchStringReplaceProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/09-layout/shop/': {
@@ -1097,7 +1119,8 @@ const rootRouteChildren: RootRouteChildren = {
   R15RouteMatchingAboutRoute: R15RouteMatchingAboutRoute,
   R15RouteMatchingProductsRoute: R15RouteMatchingProductsRouteWithChildren,
   R16EscapeCharactersSitemapDotxmlRoute: R16EscapeCharactersSitemapDotxmlRoute,
-  R18SearchParamsProductsRoute: R18SearchParamsProductsRoute,
+  R18SearchStringNoReplaceProductsRoute: R18SearchStringNoReplaceProductsRoute,
+  R19SearchStringReplaceProductsRoute: R19SearchStringReplaceProductsRoute,
   R04ColocationIndexRoute: R04ColocationIndexRoute,
   R05IndexRouteIndexRoute: R05IndexRouteIndexRoute,
   R16EscapeCharactersSitemapXmlRoute: R16EscapeCharactersSitemapXmlRoute,

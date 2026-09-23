@@ -59,8 +59,13 @@ const introExamples = [
     params: { productId: '7' },
   },
   {
-    title: 'Search Params',
-    to: '/18-search-params/products',
+    title: 'Search Params: No Replace',
+    to: '/18-search-string-no-replace/products',
+    search: { q: '' },
+  },
+  {
+    title: 'Search Params: Replace',
+    to: '/19-search-string-replace/products',
     search: { q: '' },
   },
 ] as const
@@ -69,51 +74,56 @@ export function Home() {
   return (
     <main className="mx-auto max-w-2xl px-6 py-16">
       <header className="mb-10">
-        <h1 className="text-4xl font-bold tracking-tight text-slate-50">
+        <h1 className="text-2xl font-normal tracking-tight text-slate-50">
           TanStack Router Examples
         </h1>
       </header>
 
       <section>
-        <h2 className="text-sm font-semibold uppercase tracking-wider text-slate-400">
+        <h2 className="text-xs font-normal uppercase tracking-wider text-slate-400">
           Intro
         </h2>
         <p className="mt-1 mb-4 text-slate-400">
           Small, standalone examples that each focus on one routing concept.
         </p>
-        <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
           {introExamples.map((example, index) => (
             <li
               key={example.title}
-              className="flex items-center gap-3 rounded-lg border border-slate-800 bg-slate-900 p-3 shadow-sm"
+              className="overflow-hidden rounded-lg border border-slate-800 bg-slate-900 shadow-sm"
             >
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-500/20 text-sm font-semibold text-indigo-300">
-                {index + 1}
-              </span>
               {'to' in example ? (
                 <Link
                   to={example.to}
                   params={'params' in example ? example.params : undefined}
                   search={'search' in example ? example.search : undefined}
-                  className="font-medium text-slate-100 hover:text-indigo-300"
+                  className="flex items-center gap-2 p-2 text-sm font-normal text-slate-100 transition-colors hover:bg-slate-800 hover:text-indigo-300"
                 >
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-500/20 text-xs font-normal text-indigo-300">
+                    {index + 1}
+                  </span>
                   {example.title}
                 </Link>
               ) : (
-                <div>
-                  <h3 className="font-medium text-slate-100">
-                    {example.title}
-                  </h3>
-                  <div className="mt-1 flex gap-4">
-                    {example.links.map((link) => (
-                      <Link
-                        key={link.to}
-                        to={link.to}
-                        className="text-sm font-medium text-indigo-300 hover:text-indigo-200"
-                      >
-                        {link.label} →
-                      </Link>
-                    ))}
+                <div className="flex items-center gap-2 p-2">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-500/20 text-xs font-normal text-indigo-300">
+                    {index + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-sm font-normal text-slate-100">
+                      {example.title}
+                    </h3>
+                    <div className="mt-1 flex gap-4">
+                      {example.links.map((link) => (
+                        <Link
+                          key={link.to}
+                          to={link.to}
+                          className="text-xs font-normal text-indigo-300 hover:text-indigo-200"
+                        >
+                          {link.label} →
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               )}
