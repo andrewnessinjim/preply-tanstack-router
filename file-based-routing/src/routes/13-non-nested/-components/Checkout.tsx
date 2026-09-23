@@ -1,4 +1,5 @@
 import { Link, useParams } from '@tanstack/react-router'
+import { CheckoutDescription } from './CheckoutDescription'
 
 export function Checkout() {
   const { productId } = useParams({
@@ -12,12 +13,7 @@ export function Checkout() {
           Checkout
         </h1>
       </header>
-      <p className="text-slate-400">
-        The URL is <code>/13-non-nested/products/{productId}/checkout</code>,
-        but the route file is named <code>products_</code>. The trailing
-        underscore opts out of nesting, so the <code>products</code> layout
-        and its navbar are not rendered.
-      </p>
+      <CheckoutDescription productId={productId} />
       <Link
         to="/13-non-nested/products/$productId"
         params={{ productId }}

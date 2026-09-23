@@ -1,4 +1,5 @@
 import { Link } from '@tanstack/react-router'
+import { Description } from './Description'
 
 type EscapeCharactersProps = {
   title: string
@@ -18,10 +19,7 @@ export function EscapeCharacters({
           {title}
         </h1>
       </header>
-      <p className="text-slate-400">
-        File: <code>{filename}</code>
-      </p>
-      <p className="mt-4 text-slate-400">{body}</p>
+      <Description filename={filename} body={body} />
       <div className="mt-4 flex gap-4">
         <Link
           to="/16-escape-characters/sitemap.xml"

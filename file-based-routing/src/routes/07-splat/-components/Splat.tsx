@@ -1,4 +1,5 @@
 import { Link, useParams } from '@tanstack/react-router'
+import { Description } from './Description'
 
 export function Splat() {
   const { _splat } = useParams({ from: '/07-splat/$' })
@@ -10,11 +11,7 @@ export function Splat() {
           Splat Route
         </h1>
       </header>
-      <p className="text-slate-400">
-        A lone <code>$</code> in the filename (<code>07-splat/$.tsx</code>)
-        matches the rest of the URL, including any slashes. Unlike a dynamic
-        segment, it is not limited to one segment.
-      </p>
+      <Description />
       <p className="mt-4 text-slate-400">
         The matched value is available as <code>_splat</code>. Value:{' '}
         <code className="inline-block rounded bg-indigo-500/30 px-1.5 py-0.5 text-indigo-300">

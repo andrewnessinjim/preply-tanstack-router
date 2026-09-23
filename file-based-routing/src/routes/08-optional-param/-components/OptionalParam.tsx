@@ -1,4 +1,5 @@
 import { Link, useParams } from '@tanstack/react-router'
+import { Description } from './Description'
 
 export function OptionalParam() {
   const { category } = useParams({ from: '/08-optional-param/{-$category}' })
@@ -10,11 +11,7 @@ export function OptionalParam() {
           Optional Path Parameter
         </h1>
       </header>
-      <p className="text-slate-400">
-        Wrapping a dynamic segment as <code>{'{-$category}'}</code> makes it
-        optional. This one route matches both <code>/08-optional-param</code>{' '}
-        and <code>/08-optional-param/shoes</code>.
-      </p>
+      <Description />
       <p className="mt-4 text-slate-400">
         The value is <code>undefined</code> when the segment is missing.
         Category: <code>{category ?? 'none (all products)'}</code>

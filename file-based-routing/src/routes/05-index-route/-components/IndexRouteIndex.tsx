@@ -1,4 +1,5 @@
 import { Link } from '@tanstack/react-router'
+import { IndexRouteIndexDescription } from './IndexRouteIndexDescription'
 
 export function IndexRouteIndex() {
   return (
@@ -8,10 +9,7 @@ export function IndexRouteIndex() {
           Index Route
         </h1>
       </header>
-      <p className="text-slate-400">
-        This is the index route. It is rendered when the URL is exactly{' '}
-        <code>/05-index-route</code>, with nothing after it.
-      </p>
+      <IndexRouteIndexDescription />
       <Link
         to="/05-index-route/child"
         className="mt-4 inline-block text-sm font-medium text-indigo-300 hover:text-indigo-200"

@@ -1,4 +1,5 @@
 import { Link } from '@tanstack/react-router'
+import { ProductListDescription } from './ProductListDescription'
 
 export function ProductList() {
   return (
@@ -6,10 +7,7 @@ export function ProductList() {
       <h1 className="text-4xl font-bold tracking-tight text-slate-50">
         Products
       </h1>
-      <p className="mt-4 text-slate-400">
-        This page renders inside the <code>products</code> layout, so the
-        navbar above is visible.
-      </p>
+      <ProductListDescription />
       <ul className="mt-4 space-y-3">
         {['1', '2'].map((productId) => (
           <li key={productId}>

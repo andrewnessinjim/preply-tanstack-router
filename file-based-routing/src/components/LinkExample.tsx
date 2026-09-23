@@ -1,4 +1,5 @@
 import { Link } from '@tanstack/react-router'
+import { LinkExampleDescription } from './LinkExampleDescription'
 
 export function LinkExample() {
   return (
@@ -8,11 +9,7 @@ export function LinkExample() {
           Links
         </h1>
       </header>
-      <p className="text-slate-400">
-        The <code>&lt;Link&gt;</code> component navigates between routes without
-        reloading the page. Its <code>to</code> prop is checked against your
-        real routes, so a typo is a TypeScript error.
-      </p>
+      <LinkExampleDescription />
       <Link
         to="/02-anatomy-of-a-route"
         className="mt-4 inline-block text-sm font-medium text-indigo-300 hover:text-indigo-200"

@@ -1,4 +1,5 @@
 import { Link, useParams } from '@tanstack/react-router'
+import { Description } from './Description'
 
 export function DynamicSegment() {
   const { productId } = useParams({ from: '/06-dynamic-segment/$productId' })
@@ -10,12 +11,7 @@ export function DynamicSegment() {
           Dynamic Route Segment
         </h1>
       </header>
-      <p className="text-slate-400">
-        A path segment that starts with <code>$</code> matches any value. This
-        page's file is named <code>$productId.tsx</code>, so it matches{' '}
-        <code>/06-dynamic-segment/1</code>, <code>/06-dynamic-segment/2</code>,
-        and so on.
-      </p>
+      <Description />
       <p className="mt-4 text-slate-400">
         The matched value is read with <code>useParams</code>. Product ID:{' '}
         <code className="inline-block rounded bg-indigo-500/30 px-1.5 py-0.5 text-indigo-300">

@@ -1,4 +1,5 @@
 import { Link, useParams } from '@tanstack/react-router'
+import { ProductDetailDescription } from './ProductDetailDescription'
 
 export function ProductDetail() {
   const { productId } = useParams({
@@ -10,10 +11,7 @@ export function ProductDetail() {
       <h1 className="text-4xl font-bold tracking-tight text-slate-50">
         Product {productId}
       </h1>
-      <p className="mt-4 text-slate-400">
-        Still nested in the <code>products</code> layout: the navbar is
-        visible.
-      </p>
+      <ProductDetailDescription />
       <Link
         to="/13-non-nested/products/$productId/checkout"
         params={{ productId }}

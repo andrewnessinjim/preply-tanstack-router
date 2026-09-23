@@ -1,4 +1,5 @@
 import { Link } from '@tanstack/react-router'
+import { IndexRouteChildDescription } from './IndexRouteChildDescription'
 
 export function IndexRouteChild() {
   return (
@@ -8,11 +9,7 @@ export function IndexRouteChild() {
           Child Route
         </h1>
       </header>
-      <p className="text-slate-400">
-        This is the child route. It is rendered when the URL is{' '}
-        <code>/05-index-route/child</code>. The index route's page is
-        replaced entirely.
-      </p>
+      <IndexRouteChildDescription />
       <Link
         to="/05-index-route"
         className="mt-4 inline-block text-sm font-medium text-indigo-300 hover:text-indigo-200"

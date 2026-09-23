@@ -1,3 +1,5 @@
+import { AnatomyOfARouteDescription } from './AnatomyOfARouteDescription'
+
 export function AnatomyOfARoute() {
   return (
     <main className="mx-auto max-w-2xl px-6 py-16">
@@ -6,9 +8,7 @@ export function AnatomyOfARoute() {
           Anatomy of a Route
         </h1>
       </header>
-      <p className="text-slate-400">
-        This page is a route: a URL mapped to a component.
-      </p>
+      <AnatomyOfARouteDescription />
     </main>
   )
 }
