@@ -1,6 +1,6 @@
 # TanStack Router teaching project
 
-Two sibling projects: `file-based-routing` and `code-based-routing`. Used to teach TanStack Router to students. Example domain: an e-commerce store (chosen because it is familiar to students).
+Two projects: the file-based routing project lives at the repo root, and `code-based-routing/` is a separate, self-contained project in its own subfolder (own `package.json` and `node_modules`; ignored by the root ESLint config). Used to teach TanStack Router to students. Example domain: an e-commerce store (chosen because it is familiar to students).
 
 ## Conventions
 

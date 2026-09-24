@@ -7,9 +7,10 @@ export function Description() {
         appears until the data is ready.
       </p>
       <p className="mt-4 text-slate-400">
-        This page's loader is <code>() =&gt; fetchProducts()</code>, an async
-        function with an artificial 2–2.5s delay standing in for a network
-        request. The component then reads the result with{' '}
+        This page's loader is <code>() =&gt; fetchProducts()</code>, which
+        requests the products table from Supabase (watch for it in the
+        Network tab), then adds an artificial 2–2.5s delay so the wait is
+        easy to see. The component then reads the result with{' '}
         <code>useLoaderData</code>.
       </p>
     </>

@@ -1,3 +1,5 @@
+import { supabase } from './supabase'
+
 export const products = [
   { name: 'Running Shoes', category: 'Footwear', price: 89 },
   { name: 'Leather Boots', category: 'Footwear', price: 129 },
@@ -13,9 +15,18 @@ export const products = [
 
 export type Product = (typeof products)[number]
 
-export function fetchProducts(): Promise<ReadonlyArray<Product>> {
+// Fetches the products table from Supabase, so the loader's request shows up
+// in the browser's Network tab. The extra 2–2.5s delay afterwards keeps the
+// wait long enough to see in the loader and pending examples.
+export async function fetchProducts(): Promise<ReadonlyArray<Product>> {
+  const { data, error } = await supabase
+    .from('products')
+    .select('name, category, price')
+    .order('id')
+  if (error) throw error
+
   const delayMs = 2000 + Math.random() * 500
-  return new Promise((resolve) => {
-    setTimeout(() => resolve(products), delayMs)
-  })
+  await new Promise((resolve) => setTimeout(resolve, delayMs))
+
+  return data as ReadonlyArray<Product>
 }
