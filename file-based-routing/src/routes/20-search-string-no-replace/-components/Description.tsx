@@ -22,7 +22,7 @@ export function Description({ q }: DescriptionProps) {
       <p className="mt-4 text-slate-400">
         Compare with{' '}
         <Link
-          to="/19-search-string-replace/products"
+          to="/21-search-string-replace/products"
           search={{ q }}
           className="font-medium text-indigo-300 hover:text-indigo-200"
         >

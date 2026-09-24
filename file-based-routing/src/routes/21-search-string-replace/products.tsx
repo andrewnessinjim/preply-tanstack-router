@@ -5,7 +5,7 @@ type ProductsSearch = {
   q: string
 }
 
-export const Route = createFileRoute('/18-search-string-no-replace/products')({
+export const Route = createFileRoute('/21-search-string-replace/products')({
   validateSearch: (search: Record<string, unknown>): ProductsSearch => ({
     q: typeof search.q === 'string' ? search.q : '',
   }),

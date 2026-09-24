@@ -12,7 +12,11 @@ type IntroExample =
     }
   | {
       title: string
-      links: ReadonlyArray<{ to: IntroExamplePath; label: string }>
+      links: ReadonlyArray<{
+        to: IntroExamplePath
+        label: string
+        preload?: false | 'intent' | 'viewport' | 'render'
+      }>
     }
 
 const introExamples = [
@@ -74,18 +78,26 @@ const introExamples = [
     params: { productId: '7' },
   },
   {
+    title: 'Loader',
+    links: [
+      { to: '/18-loader/products', label: 'Default' },
+      { to: '/18-loader/products', label: 'Preload: intent', preload: 'intent' },
+    ],
+  },
+  { title: 'Pending Component', to: '/19-pending-component/products' },
+  {
     title: 'Search Params: No Replace',
-    to: '/18-search-string-no-replace/products',
+    to: '/20-search-string-no-replace/products',
     search: { q: '' },
   },
   {
     title: 'Search Params: Replace',
-    to: '/19-search-string-replace/products',
+    to: '/21-search-string-replace/products',
     search: { q: '' },
   },
   {
     title: 'Search Params: JSON',
-    to: '/20-search-json/products',
+    to: '/22-search-json/products',
     search: {
       q: undefined,
       maxPrice: undefined,
@@ -96,7 +108,7 @@ const introExamples = [
   },
   {
     title: 'Search Params: Zod',
-    to: '/21-search-json-zod/products',
+    to: '/23-search-json-zod/products',
     search: {
       q: undefined,
       maxPrice: undefined,
@@ -153,8 +165,9 @@ export function Home() {
                     <div className="mt-1 flex gap-4">
                       {example.links.map((link) => (
                         <Link
-                          key={link.to}
+                          key={link.label}
                           to={link.to}
+                          preload={'preload' in link ? link.preload : undefined}
                           className="text-xs font-normal text-indigo-300 hover:text-indigo-200"
                         >
                           {link.label} →

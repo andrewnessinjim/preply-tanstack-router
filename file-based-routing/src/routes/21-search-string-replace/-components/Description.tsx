@@ -9,7 +9,7 @@ export function Description({ q }: DescriptionProps) {
     <p className="text-slate-400">
       Same as{' '}
       <Link
-        to="/18-search-string-no-replace/products"
+        to="/20-search-string-no-replace/products"
         search={{ q }}
         className="font-medium text-indigo-300 hover:text-indigo-200"
       >

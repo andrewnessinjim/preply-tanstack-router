@@ -28,7 +28,7 @@ export function SortableProductsTable({
             return (
               <th key={column.key} className="border-b border-slate-800 pb-2">
                 <Link
-                  from="/21-search-json-zod/products"
+                  from="/23-search-json-zod/products"
                   search={(prev) => ({
                     ...prev,
                     sortBy: column.key,

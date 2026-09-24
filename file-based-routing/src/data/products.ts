@@ -12,3 +12,10 @@ export const products = [
 ] as const
 
 export type Product = (typeof products)[number]
+
+export function fetchProducts(): Promise<ReadonlyArray<Product>> {
+  const delayMs = 2000 + Math.random() * 500
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(products), delayMs)
+  })
+}
