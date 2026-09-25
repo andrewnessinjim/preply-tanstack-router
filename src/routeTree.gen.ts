@@ -26,7 +26,7 @@ import { Route as R11PathlessLayoutShopRouteImport } from './routes/11-pathless-
 import { Route as R12RouteGrouplegalRouteRouteImport } from './routes/12-route-group/(legal)/route'
 import { Route as R12RouteGroupshopRouteRouteImport } from './routes/12-route-group/(shop)/route'
 import { Route as R13NonNestedProductsRouteImport } from './routes/13-non-nested/products'
-import { Route as R14UseLocationCategoryRouteImport } from './routes/14-use-location/$category'
+import { Route as R14LocationCategoryRouteImport } from './routes/14-location/$category'
 import { Route as R15RouteMatchingAboutRouteImport } from './routes/15-route-matching/about'
 import { Route as R15RouteMatchingProductsRouteImport } from './routes/15-route-matching/products'
 import { Route as R16EscapeCharactersSitemapDotxmlRouteImport } from './routes/16-escape-characters/sitemap[.]xml'
@@ -149,9 +149,9 @@ const R13NonNestedProductsRoute = R13NonNestedProductsRouteImport.update({
   path: '/13-non-nested/products',
   getParentRoute: () => rootRouteImport,
 } as any)
-const R14UseLocationCategoryRoute = R14UseLocationCategoryRouteImport.update({
-  id: '/14-use-location/$category',
-  path: '/14-use-location/$category',
+const R14LocationCategoryRoute = R14LocationCategoryRouteImport.update({
+  id: '/14-location/$category',
+  path: '/14-location/$category',
   getParentRoute: () => rootRouteImport,
 } as any)
 const R15RouteMatchingAboutRoute = R15RouteMatchingAboutRouteImport.update({
@@ -359,7 +359,7 @@ export interface FileRoutesByFullPath {
   '/09-layout/shop': typeof R09LayoutShopRouteWithChildren
   '/11-pathless-layout': typeof R11PathlessLayoutShopRouteWithChildren
   '/13-non-nested/products': typeof R13NonNestedProductsRouteWithChildren
-  '/14-use-location/$category': typeof R14UseLocationCategoryRoute
+  '/14-location/$category': typeof R14LocationCategoryRoute
   '/15-route-matching/about': typeof R15RouteMatchingAboutRoute
   '/15-route-matching/products': typeof R15RouteMatchingProductsRouteWithChildren
   '/16-escape-characters/sitemap.xml': typeof R16EscapeCharactersSitemapDotxmlRoute
@@ -407,7 +407,7 @@ export interface FileRoutesByTo {
   '/07-splat/$': typeof R07SplatSplatRoute
   '/08-optional-param/{-$category}': typeof R08OptionalParamChar123CategoryChar125Route
   '/11-pathless-layout': typeof R11PathlessLayoutShopRouteWithChildren
-  '/14-use-location/$category': typeof R14UseLocationCategoryRoute
+  '/14-location/$category': typeof R14LocationCategoryRoute
   '/15-route-matching/about': typeof R15RouteMatchingAboutRoute
   '/16-escape-characters/sitemap.xml': typeof R16EscapeCharactersSitemapDotxmlRoute
   '/18-loader/products': typeof R18LoaderProductsRoute
@@ -460,7 +460,7 @@ export interface FileRoutesById {
   '/11-pathless-layout/_legal': typeof R11PathlessLayoutLegalRouteWithChildren
   '/11-pathless-layout/_shop': typeof R11PathlessLayoutShopRouteWithChildren
   '/13-non-nested/products': typeof R13NonNestedProductsRouteWithChildren
-  '/14-use-location/$category': typeof R14UseLocationCategoryRoute
+  '/14-location/$category': typeof R14LocationCategoryRoute
   '/15-route-matching/about': typeof R15RouteMatchingAboutRoute
   '/15-route-matching/products': typeof R15RouteMatchingProductsRouteWithChildren
   '/16-escape-characters/sitemap.xml': typeof R16EscapeCharactersSitemapDotxmlRoute
@@ -513,7 +513,7 @@ export interface FileRouteTypes {
     | '/09-layout/shop'
     | '/11-pathless-layout'
     | '/13-non-nested/products'
-    | '/14-use-location/$category'
+    | '/14-location/$category'
     | '/15-route-matching/about'
     | '/15-route-matching/products'
     | '/16-escape-characters/sitemap.xml'
@@ -561,7 +561,7 @@ export interface FileRouteTypes {
     | '/07-splat/$'
     | '/08-optional-param/{-$category}'
     | '/11-pathless-layout'
-    | '/14-use-location/$category'
+    | '/14-location/$category'
     | '/15-route-matching/about'
     | '/16-escape-characters/sitemap.xml'
     | '/18-loader/products'
@@ -613,7 +613,7 @@ export interface FileRouteTypes {
     | '/11-pathless-layout/_legal'
     | '/11-pathless-layout/_shop'
     | '/13-non-nested/products'
-    | '/14-use-location/$category'
+    | '/14-location/$category'
     | '/15-route-matching/about'
     | '/15-route-matching/products'
     | '/16-escape-characters/sitemap.xml'
@@ -667,7 +667,7 @@ export interface RootRouteChildren {
   R11PathlessLayoutLegalRoute: typeof R11PathlessLayoutLegalRouteWithChildren
   R11PathlessLayoutShopRoute: typeof R11PathlessLayoutShopRouteWithChildren
   R13NonNestedProductsRoute: typeof R13NonNestedProductsRouteWithChildren
-  R14UseLocationCategoryRoute: typeof R14UseLocationCategoryRoute
+  R14LocationCategoryRoute: typeof R14LocationCategoryRoute
   R15RouteMatchingAboutRoute: typeof R15RouteMatchingAboutRoute
   R15RouteMatchingProductsRoute: typeof R15RouteMatchingProductsRouteWithChildren
   R16EscapeCharactersSitemapDotxmlRoute: typeof R16EscapeCharactersSitemapDotxmlRoute
@@ -805,11 +805,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof R13NonNestedProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/14-use-location/$category': {
-      id: '/14-use-location/$category'
-      path: '/14-use-location/$category'
-      fullPath: '/14-use-location/$category'
-      preLoaderRoute: typeof R14UseLocationCategoryRouteImport
+    '/14-location/$category': {
+      id: '/14-location/$category'
+      path: '/14-location/$category'
+      fullPath: '/14-location/$category'
+      preLoaderRoute: typeof R14LocationCategoryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/15-route-matching/about': {
@@ -1197,7 +1197,7 @@ const rootRouteChildren: RootRouteChildren = {
   R11PathlessLayoutLegalRoute: R11PathlessLayoutLegalRouteWithChildren,
   R11PathlessLayoutShopRoute: R11PathlessLayoutShopRouteWithChildren,
   R13NonNestedProductsRoute: R13NonNestedProductsRouteWithChildren,
-  R14UseLocationCategoryRoute: R14UseLocationCategoryRoute,
+  R14LocationCategoryRoute: R14LocationCategoryRoute,
   R15RouteMatchingAboutRoute: R15RouteMatchingAboutRoute,
   R15RouteMatchingProductsRoute: R15RouteMatchingProductsRouteWithChildren,
   R16EscapeCharactersSitemapDotxmlRoute: R16EscapeCharactersSitemapDotxmlRoute,

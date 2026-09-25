@@ -66,8 +66,8 @@ const introExamples = [
   },
   { title: 'Non-Nested Routes', to: '/13-non-nested/products' },
   {
-    title: 'useLocation',
-    to: '/14-use-location/$category',
+    title: 'Location',
+    to: '/14-location/$category',
     params: { category: 'shoes' },
   },
   { title: 'Route Matching', to: '/15-route-matching/products' },

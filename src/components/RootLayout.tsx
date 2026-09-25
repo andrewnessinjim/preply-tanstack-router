@@ -2,10 +2,11 @@ import { Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 export function RootLayout() {
-  // resolvedLocation, not useLocation(): location updates as soon as a
-  // navigation starts, while resolvedLocation only updates once the new
-  // page's loaders have finished and it renders. Falls back to location on
-  // the very first load, before anything has resolved.
+  // Based on the matches being rendered, not on a location. location
+  // updates as soon as a navigation starts, and resolvedLocation only once
+  // the loader has finished; neither is right when a page renders its
+  // pendingComponent before its data arrives. matches is exactly what the
+  // <Outlet /> below is showing, so the link appears together with it.
   const isHome = useRouterState({
     select: (state) => {
       console.log({
@@ -14,7 +15,7 @@ export function RootLayout() {
         resolvedLocation: state.resolvedLocation?.pathname,
         matches: state.matches.map((match) => match.routeId),
       });
-      return (state.resolvedLocation ?? state.location).pathname === "/";
+      return state.matches.some((match) => match.routeId === "/");
     },
   });
 
