@@ -9,9 +9,10 @@ export function Description() {
         update together, just with a skeleton where the data would go.
       </p>
       <p className="mt-4 text-slate-400">
-        Compare this to <code>18-loader</code>, which sets{' '}
-        <code>pendingMs: Infinity</code> so the navigation never commits
-        early — nothing changes anywhere until the loader resolves.
+        Compare this to <code>18-loader</code>, which has no{' '}
+        <code>pendingComponent</code>. Without one, <code>pendingMs</code>{' '}
+        is ignored and the router keeps showing the previous page until
+        the loader resolves.
       </p>
     </>
   )

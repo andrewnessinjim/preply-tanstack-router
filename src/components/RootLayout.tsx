@@ -1,5 +1,5 @@
-import { Link, Outlet, useRouterState } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
+import { Link, Outlet, useRouterState } from "@tanstack/react-router";
+import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 export function RootLayout() {
   // resolvedLocation, not useLocation(): location updates as soon as a
@@ -7,8 +7,18 @@ export function RootLayout() {
   // page's loaders have finished and it renders. Falls back to location on
   // the very first load, before anything has resolved.
   const isHome = useRouterState({
-    select: (state) => (state.resolvedLocation ?? state.location).pathname === '/',
-  })
+    select: (state) => {
+      console.log({
+        status: state.status,
+        location: state.location.pathname,
+        resolvedLocation: state.resolvedLocation?.pathname,
+        matches: state.matches.map((match) => match.routeId),
+      });
+      return (state.resolvedLocation ?? state.location).pathname === "/";
+    },
+  });
+
+  console.log("Root layout rendered");
 
   return (
     <>
@@ -25,5 +35,5 @@ export function RootLayout() {
       <Outlet />
       <TanStackRouterDevtools />
     </>
-  )
+  );
 }
