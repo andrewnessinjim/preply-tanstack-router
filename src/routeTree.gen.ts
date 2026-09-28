@@ -27,6 +27,7 @@ import { Route as R11PathlessLayoutShopRouteImport } from './routes/11-pathless-
 import { Route as R12RouteGrouplegalRouteRouteImport } from './routes/12-route-group/(legal)/route'
 import { Route as R12RouteGroupshopRouteRouteImport } from './routes/12-route-group/(shop)/route'
 import { Route as R13NonNestedProductsRouteImport } from './routes/13-non-nested/products'
+import { Route as R14LocationIndexRouteImport } from './routes/14-location/index'
 import { Route as R14LocationCategoryRouteImport } from './routes/14-location/$category'
 import { Route as R15RelativeLinksIndexRouteImport } from './routes/15-relative-links/index'
 import { Route as R16RouteMatchingAboutRouteImport } from './routes/16-route-matching/about'
@@ -35,6 +36,7 @@ import { Route as R17EscapeCharactersSitemapDotxmlRouteImport } from './routes/1
 import { Route as R19LoaderProductsRouteImport } from './routes/19-loader/products'
 import { Route as R20PendingComponentProductsRouteImport } from './routes/20-pending-component/products'
 import { Route as R21SearchStringNoReplaceProductsRouteImport } from './routes/21-search-string-no-replace/products'
+import { Route as R21UseNavigateCheckoutRouteImport } from './routes/21-use-navigate/checkout'
 import { Route as R22SearchStringReplaceProductsRouteImport } from './routes/22-search-string-replace/products'
 import { Route as R23SearchJsonProductsRouteImport } from './routes/23-search-json/products'
 import { Route as R24SearchJsonZodProductsRouteImport } from './routes/24-search-json-zod/products'
@@ -63,6 +65,7 @@ import { Route as R16RouteMatchingProductsProductIdRouteImport } from './routes/
 import { Route as R16RouteMatchingProductsSpecialOfferRouteImport } from './routes/16-route-matching/products.specialOffer'
 import { Route as R17EscapeCharactersSitemapXmlRouteImport } from './routes/17-escape-characters/sitemap.xml'
 import { Route as R18UrlRewritesProductsProductIdRouteImport } from './routes/18-url-rewrites/products.$productId'
+import { Route as R21UseNavigateOrdersOrderIdRouteImport } from './routes/21-use-navigate/orders.$orderId'
 import { Route as R13NonNestedProductsProductIdCheckoutRouteImport } from './routes/13-non-nested/products_.$productId.checkout'
 import { Route as R15RelativeLinksProductsProductIdIndexRouteImport } from './routes/15-relative-links/products/$productId/index'
 import { Route as R15RelativeLinksProductsProductIdReviewsRouteImport } from './routes/15-relative-links/products/$productId/reviews'
@@ -160,6 +163,11 @@ const R13NonNestedProductsRoute = R13NonNestedProductsRouteImport.update({
   path: '/13-non-nested/products',
   getParentRoute: () => rootRouteImport,
 } as any)
+const R14LocationIndexRoute = R14LocationIndexRouteImport.update({
+  id: '/14-location/',
+  path: '/14-location/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const R14LocationCategoryRoute = R14LocationCategoryRouteImport.update({
   id: '/14-location/$category',
   path: '/14-location/$category',
@@ -204,6 +212,11 @@ const R21SearchStringNoReplaceProductsRoute =
     path: '/21-search-string-no-replace/products',
     getParentRoute: () => rootRouteImport,
   } as any)
+const R21UseNavigateCheckoutRoute = R21UseNavigateCheckoutRouteImport.update({
+  id: '/21-use-navigate/checkout',
+  path: '/21-use-navigate/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const R22SearchStringReplaceProductsRoute =
   R22SearchStringReplaceProductsRouteImport.update({
     id: '/22-search-string-replace/products',
@@ -366,6 +379,12 @@ const R18UrlRewritesProductsProductIdRoute =
     path: '/18-url-rewrites/products/$productId',
     getParentRoute: () => rootRouteImport,
   } as any)
+const R21UseNavigateOrdersOrderIdRoute =
+  R21UseNavigateOrdersOrderIdRouteImport.update({
+    id: '/21-use-navigate/orders/$orderId',
+    path: '/21-use-navigate/orders/$orderId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const R13NonNestedProductsProductIdCheckoutRoute =
   R13NonNestedProductsProductIdCheckoutRouteImport.update({
     id: '/13-non-nested/products_/$productId/checkout',
@@ -407,11 +426,13 @@ export interface FileRoutesByFullPath {
   '/19-loader/products': typeof R19LoaderProductsRoute
   '/20-pending-component/products': typeof R20PendingComponentProductsRoute
   '/21-search-string-no-replace/products': typeof R21SearchStringNoReplaceProductsRoute
+  '/21-use-navigate/checkout': typeof R21UseNavigateCheckoutRoute
   '/22-search-string-replace/products': typeof R22SearchStringReplaceProductsRoute
   '/23-search-json/products': typeof R23SearchJsonProductsRoute
   '/24-search-json-zod/products': typeof R24SearchJsonZodProductsRoute
   '/04-colocation/': typeof R04ColocationIndexRoute
   '/05-index-route/': typeof R05IndexRouteIndexRoute
+  '/14-location/': typeof R14LocationIndexRoute
   '/15-relative-links/': typeof R15RelativeLinksIndexRoute
   '/15-relative-links/products/$productId': typeof R15RelativeLinksProductsProductIdRouteRouteWithChildren
   '/09-layout/shop/about': typeof R09LayoutShopAboutRoute
@@ -433,6 +454,7 @@ export interface FileRoutesByFullPath {
   '/16-route-matching/products/specialOffer': typeof R16RouteMatchingProductsSpecialOfferRoute
   '/17-escape-characters/sitemap/xml': typeof R17EscapeCharactersSitemapXmlRoute
   '/18-url-rewrites/products/$productId': typeof R18UrlRewritesProductsProductIdRoute
+  '/21-use-navigate/orders/$orderId': typeof R21UseNavigateOrdersOrderIdRoute
   '/09-layout/shop/': typeof R09LayoutShopIndexRoute
   '/10-nested-layout/shop/': typeof R10NestedLayoutShopIndexRoute
   '/13-non-nested/products/': typeof R13NonNestedProductsIndexRoute
@@ -459,11 +481,13 @@ export interface FileRoutesByTo {
   '/19-loader/products': typeof R19LoaderProductsRoute
   '/20-pending-component/products': typeof R20PendingComponentProductsRoute
   '/21-search-string-no-replace/products': typeof R21SearchStringNoReplaceProductsRoute
+  '/21-use-navigate/checkout': typeof R21UseNavigateCheckoutRoute
   '/22-search-string-replace/products': typeof R22SearchStringReplaceProductsRoute
   '/23-search-json/products': typeof R23SearchJsonProductsRoute
   '/24-search-json-zod/products': typeof R24SearchJsonZodProductsRoute
   '/04-colocation': typeof R04ColocationIndexRoute
   '/05-index-route': typeof R05IndexRouteIndexRoute
+  '/14-location': typeof R14LocationIndexRoute
   '/15-relative-links': typeof R15RelativeLinksIndexRoute
   '/09-layout/shop/about': typeof R09LayoutShopAboutRoute
   '/09-layout/shop/products': typeof R09LayoutShopProductsRoute
@@ -484,6 +508,7 @@ export interface FileRoutesByTo {
   '/16-route-matching/products/specialOffer': typeof R16RouteMatchingProductsSpecialOfferRoute
   '/17-escape-characters/sitemap/xml': typeof R17EscapeCharactersSitemapXmlRoute
   '/18-url-rewrites/products/$productId': typeof R18UrlRewritesProductsProductIdRoute
+  '/21-use-navigate/orders/$orderId': typeof R21UseNavigateOrdersOrderIdRoute
   '/09-layout/shop': typeof R09LayoutShopIndexRoute
   '/10-nested-layout/shop': typeof R10NestedLayoutShopIndexRoute
   '/13-non-nested/products': typeof R13NonNestedProductsIndexRoute
@@ -518,11 +543,13 @@ export interface FileRoutesById {
   '/19-loader/products': typeof R19LoaderProductsRoute
   '/20-pending-component/products': typeof R20PendingComponentProductsRoute
   '/21-search-string-no-replace/products': typeof R21SearchStringNoReplaceProductsRoute
+  '/21-use-navigate/checkout': typeof R21UseNavigateCheckoutRoute
   '/22-search-string-replace/products': typeof R22SearchStringReplaceProductsRoute
   '/23-search-json/products': typeof R23SearchJsonProductsRoute
   '/24-search-json-zod/products': typeof R24SearchJsonZodProductsRoute
   '/04-colocation/': typeof R04ColocationIndexRoute
   '/05-index-route/': typeof R05IndexRouteIndexRoute
+  '/14-location/': typeof R14LocationIndexRoute
   '/15-relative-links/': typeof R15RelativeLinksIndexRoute
   '/15-relative-links/products/$productId': typeof R15RelativeLinksProductsProductIdRouteRouteWithChildren
   '/09-layout/shop/about': typeof R09LayoutShopAboutRoute
@@ -544,6 +571,7 @@ export interface FileRoutesById {
   '/16-route-matching/products/specialOffer': typeof R16RouteMatchingProductsSpecialOfferRoute
   '/17-escape-characters/sitemap/xml': typeof R17EscapeCharactersSitemapXmlRoute
   '/18-url-rewrites/products/$productId': typeof R18UrlRewritesProductsProductIdRoute
+  '/21-use-navigate/orders/$orderId': typeof R21UseNavigateOrdersOrderIdRoute
   '/09-layout/shop/': typeof R09LayoutShopIndexRoute
   '/10-nested-layout/shop/': typeof R10NestedLayoutShopIndexRoute
   '/13-non-nested/products/': typeof R13NonNestedProductsIndexRoute
@@ -577,11 +605,13 @@ export interface FileRouteTypes {
     | '/19-loader/products'
     | '/20-pending-component/products'
     | '/21-search-string-no-replace/products'
+    | '/21-use-navigate/checkout'
     | '/22-search-string-replace/products'
     | '/23-search-json/products'
     | '/24-search-json-zod/products'
     | '/04-colocation/'
     | '/05-index-route/'
+    | '/14-location/'
     | '/15-relative-links/'
     | '/15-relative-links/products/$productId'
     | '/09-layout/shop/about'
@@ -603,6 +633,7 @@ export interface FileRouteTypes {
     | '/16-route-matching/products/specialOffer'
     | '/17-escape-characters/sitemap/xml'
     | '/18-url-rewrites/products/$productId'
+    | '/21-use-navigate/orders/$orderId'
     | '/09-layout/shop/'
     | '/10-nested-layout/shop/'
     | '/13-non-nested/products/'
@@ -629,11 +660,13 @@ export interface FileRouteTypes {
     | '/19-loader/products'
     | '/20-pending-component/products'
     | '/21-search-string-no-replace/products'
+    | '/21-use-navigate/checkout'
     | '/22-search-string-replace/products'
     | '/23-search-json/products'
     | '/24-search-json-zod/products'
     | '/04-colocation'
     | '/05-index-route'
+    | '/14-location'
     | '/15-relative-links'
     | '/09-layout/shop/about'
     | '/09-layout/shop/products'
@@ -654,6 +687,7 @@ export interface FileRouteTypes {
     | '/16-route-matching/products/specialOffer'
     | '/17-escape-characters/sitemap/xml'
     | '/18-url-rewrites/products/$productId'
+    | '/21-use-navigate/orders/$orderId'
     | '/09-layout/shop'
     | '/10-nested-layout/shop'
     | '/13-non-nested/products'
@@ -687,11 +721,13 @@ export interface FileRouteTypes {
     | '/19-loader/products'
     | '/20-pending-component/products'
     | '/21-search-string-no-replace/products'
+    | '/21-use-navigate/checkout'
     | '/22-search-string-replace/products'
     | '/23-search-json/products'
     | '/24-search-json-zod/products'
     | '/04-colocation/'
     | '/05-index-route/'
+    | '/14-location/'
     | '/15-relative-links/'
     | '/15-relative-links/products/$productId'
     | '/09-layout/shop/about'
@@ -713,6 +749,7 @@ export interface FileRouteTypes {
     | '/16-route-matching/products/specialOffer'
     | '/17-escape-characters/sitemap/xml'
     | '/18-url-rewrites/products/$productId'
+    | '/21-use-navigate/orders/$orderId'
     | '/09-layout/shop/'
     | '/10-nested-layout/shop/'
     | '/13-non-nested/products/'
@@ -747,13 +784,16 @@ export interface RootRouteChildren {
   R19LoaderProductsRoute: typeof R19LoaderProductsRoute
   R20PendingComponentProductsRoute: typeof R20PendingComponentProductsRoute
   R21SearchStringNoReplaceProductsRoute: typeof R21SearchStringNoReplaceProductsRoute
+  R21UseNavigateCheckoutRoute: typeof R21UseNavigateCheckoutRoute
   R22SearchStringReplaceProductsRoute: typeof R22SearchStringReplaceProductsRoute
   R23SearchJsonProductsRoute: typeof R23SearchJsonProductsRoute
   R24SearchJsonZodProductsRoute: typeof R24SearchJsonZodProductsRoute
   R04ColocationIndexRoute: typeof R04ColocationIndexRoute
   R05IndexRouteIndexRoute: typeof R05IndexRouteIndexRoute
+  R14LocationIndexRoute: typeof R14LocationIndexRoute
   R17EscapeCharactersSitemapXmlRoute: typeof R17EscapeCharactersSitemapXmlRoute
   R18UrlRewritesProductsProductIdRoute: typeof R18UrlRewritesProductsProductIdRoute
+  R21UseNavigateOrdersOrderIdRoute: typeof R21UseNavigateOrdersOrderIdRoute
   R13NonNestedProductsProductIdCheckoutRoute: typeof R13NonNestedProductsProductIdCheckoutRoute
 }
 
@@ -885,6 +925,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof R13NonNestedProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/14-location/': {
+      id: '/14-location/'
+      path: '/14-location'
+      fullPath: '/14-location/'
+      preLoaderRoute: typeof R14LocationIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/14-location/$category': {
       id: '/14-location/$category'
       path: '/14-location/$category'
@@ -939,6 +986,13 @@ declare module '@tanstack/react-router' {
       path: '/21-search-string-no-replace/products'
       fullPath: '/21-search-string-no-replace/products'
       preLoaderRoute: typeof R21SearchStringNoReplaceProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/21-use-navigate/checkout': {
+      id: '/21-use-navigate/checkout'
+      path: '/21-use-navigate/checkout'
+      fullPath: '/21-use-navigate/checkout'
+      preLoaderRoute: typeof R21UseNavigateCheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/22-search-string-replace/products': {
@@ -1135,6 +1189,13 @@ declare module '@tanstack/react-router' {
       path: '/18-url-rewrites/products/$productId'
       fullPath: '/18-url-rewrites/products/$productId'
       preLoaderRoute: typeof R18UrlRewritesProductsProductIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/21-use-navigate/orders/$orderId': {
+      id: '/21-use-navigate/orders/$orderId'
+      path: '/21-use-navigate/orders/$orderId'
+      fullPath: '/21-use-navigate/orders/$orderId'
+      preLoaderRoute: typeof R21UseNavigateOrdersOrderIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/13-non-nested/products_/$productId/checkout': {
@@ -1356,13 +1417,16 @@ const rootRouteChildren: RootRouteChildren = {
   R19LoaderProductsRoute: R19LoaderProductsRoute,
   R20PendingComponentProductsRoute: R20PendingComponentProductsRoute,
   R21SearchStringNoReplaceProductsRoute: R21SearchStringNoReplaceProductsRoute,
+  R21UseNavigateCheckoutRoute: R21UseNavigateCheckoutRoute,
   R22SearchStringReplaceProductsRoute: R22SearchStringReplaceProductsRoute,
   R23SearchJsonProductsRoute: R23SearchJsonProductsRoute,
   R24SearchJsonZodProductsRoute: R24SearchJsonZodProductsRoute,
   R04ColocationIndexRoute: R04ColocationIndexRoute,
   R05IndexRouteIndexRoute: R05IndexRouteIndexRoute,
+  R14LocationIndexRoute: R14LocationIndexRoute,
   R17EscapeCharactersSitemapXmlRoute: R17EscapeCharactersSitemapXmlRoute,
   R18UrlRewritesProductsProductIdRoute: R18UrlRewritesProductsProductIdRoute,
+  R21UseNavigateOrdersOrderIdRoute: R21UseNavigateOrdersOrderIdRoute,
   R13NonNestedProductsProductIdCheckoutRoute:
     R13NonNestedProductsProductIdCheckoutRoute,
 }

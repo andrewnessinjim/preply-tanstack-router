@@ -30,6 +30,33 @@ export function Location() {
           </Link>
         ))}
       </div>
+      <p className="mt-6 text-slate-400">
+        Both links below point to <code>/14-location</code>. By default a link
+        is also active on any URL below its path, like{" "}
+        <code>/14-location/shoes</code>. With{" "}
+        <code>activeOptions={"{{ exact: true }}"}</code> it's active only on
+        that exact path.
+      </p>
+      <div className="mt-4 flex gap-4">
+        <Link
+          to="/14-location"
+          activeOptions={{ exact: true }}
+          className="text-sm font-medium hover:text-indigo-200"
+          activeProps={{ className: "text-slate-50 underline" }}
+          inactiveProps={{ className: "text-indigo-300" }}
+        >
+          All categories (exact: true)
+        </Link>
+        <Link
+          to="/14-location"
+          activeOptions={{ exact: false }}
+          className="text-sm font-medium hover:text-indigo-200"
+          activeProps={{ className: "text-slate-50 underline" }}
+          inactiveProps={{ className: "text-indigo-300" }}
+        >
+          All categories (exact: false)
+        </Link>
+      </div>
     </main>
   );
 }

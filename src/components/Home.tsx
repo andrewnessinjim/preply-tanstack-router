@@ -86,6 +86,7 @@ const introExamples = [
     ],
   },
   { title: 'Pending Component', to: '/20-pending-component/products' },
+  { title: 'useNavigate', to: '/21-use-navigate/checkout' },
   {
     title: 'Search Params: No Replace',
     to: '/21-search-string-no-replace/products',
