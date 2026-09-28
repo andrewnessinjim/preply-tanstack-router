@@ -29,5 +29,5 @@ While the database is running, you can browse the `products` table in Supabase S
 ## Troubleshooting
 
 - **The app shows a blank page or an error about `supabaseUrl`:** `.env.local` is missing. Run `cp .env.example .env.local`, then restart `npm run dev`.
-- **Examples 18 and 19 show an error instead of the table:** the database isn't running. Run `npm run db:start`.
+- **Examples 19 and 20 show an error instead of the table:** the database isn't running. Run `npm run db:start`.
 - **`db:start` fails with "port is already allocated":** another local Supabase project is using the same ports. Stop it by running `npx supabase stop` in that project's folder.

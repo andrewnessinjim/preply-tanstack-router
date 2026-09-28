@@ -8,7 +8,7 @@ const router = createRouter({
   routeTree,
   // Router-level config, not scoped to a single route file — unlike every
   // other example, this can't live inside src/routes/. It exists for
-  // 17-url-rewrites: the store used to serve products at /item/:id before a
+  // 18-url-rewrites: the store used to serve products at /item/:id before a
   // redesign renamed it to /products/:id. Old inbound links and bookmarks
   // still use /item/:id, so this transparently maps them onto the current
   // route, without changing the browser's address bar.
@@ -20,7 +20,7 @@ const router = createRouter({
     input: ({ url }) => {
       const oldProductUrl = url.pathname.match(/^\/item\/(.+)$/)
       if (oldProductUrl) {
-        url.pathname = `/17-url-rewrites/products/${oldProductUrl[1]}`
+        url.pathname = `/18-url-rewrites/products/${oldProductUrl[1]}`
       }
       return url
     },

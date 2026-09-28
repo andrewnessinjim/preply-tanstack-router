@@ -1,4 +1,4 @@
--- Products table read by fetchProducts (examples 18 and 19).
+-- Products table read by fetchProducts (examples 19 and 20).
 
 create table public.products (
   id bigint generated always as identity primary key,

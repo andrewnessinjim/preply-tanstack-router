@@ -70,34 +70,35 @@ const introExamples = [
     to: '/14-location/$category',
     params: { category: 'shoes' },
   },
-  { title: 'Route Matching', to: '/15-route-matching/products' },
-  { title: 'Escape Characters', to: '/16-escape-characters/sitemap.xml' },
+  { title: 'Relative Links', to: '/15-relative-links' },
+  { title: 'Route Matching', to: '/16-route-matching/products' },
+  { title: 'Escape Characters', to: '/17-escape-characters/sitemap.xml' },
   {
     title: 'URL Rewrites',
-    to: '/17-url-rewrites/products/$productId',
+    to: '/18-url-rewrites/products/$productId',
     params: { productId: '7' },
   },
   {
     title: 'Loader',
     links: [
-      { to: '/18-loader/products', label: 'Default' },
-      { to: '/18-loader/products', label: 'Preload: intent', preload: 'intent' },
+      { to: '/19-loader/products', label: 'Default' },
+      { to: '/19-loader/products', label: 'Preload: intent', preload: 'intent' },
     ],
   },
-  { title: 'Pending Component', to: '/19-pending-component/products' },
+  { title: 'Pending Component', to: '/20-pending-component/products' },
   {
     title: 'Search Params: No Replace',
-    to: '/20-search-string-no-replace/products',
+    to: '/21-search-string-no-replace/products',
     search: { q: '' },
   },
   {
     title: 'Search Params: Replace',
-    to: '/21-search-string-replace/products',
+    to: '/22-search-string-replace/products',
     search: { q: '' },
   },
   {
     title: 'Search Params: JSON',
-    to: '/22-search-json/products',
+    to: '/23-search-json/products',
     search: {
       q: undefined,
       maxPrice: undefined,
@@ -108,7 +109,7 @@ const introExamples = [
   },
   {
     title: 'Search Params: Zod',
-    to: '/23-search-json-zod/products',
+    to: '/24-search-json-zod/products',
     search: {
       q: undefined,
       maxPrice: undefined,
