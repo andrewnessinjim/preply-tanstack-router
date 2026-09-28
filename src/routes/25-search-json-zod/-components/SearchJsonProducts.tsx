@@ -7,13 +7,14 @@ const categories = [...new Set(products.map((product) => product.category))];
 
 export function SearchJsonProducts() {
   const { q, maxPrice, category, sortBy, sortDir } = useSearch({
-    from: "/23-search-json/products",
+    from: "/25-search-json-zod/products",
   });
-  const navigate = useNavigate({ from: "/23-search-json/products" });
+  const navigate = useNavigate({ from: "/25-search-json-zod/products" });
 
   const visibleProducts = products
     .filter(
-      (product) => !q || product.name.toLowerCase().includes(q.toLowerCase()),
+      (product) =>
+        q === undefined || product.name.toLowerCase().includes(q.toLowerCase()),
     )
     .filter((product) => maxPrice === undefined || product.price <= maxPrice)
     .filter(
@@ -29,7 +30,7 @@ export function SearchJsonProducts() {
     <main className="mx-auto max-w-2xl px-6 py-16">
       <header className="mb-10">
         <h1 className="text-4xl font-bold tracking-tight text-slate-50">
-          Search Params: JSON
+          Search Params: Zod
         </h1>
       </header>
       <Description />
@@ -69,9 +70,8 @@ export function SearchJsonProducts() {
       <div className="mt-4 flex flex-wrap gap-2">
         {[undefined, ...categories].map((option) => (
           <Link
-            replace={true}
             key={option ?? "all"}
-            from="/23-search-json/products"
+            from="/25-search-json-zod/products"
             search={(prev) => ({ ...prev, category: option })}
             className={
               option === category

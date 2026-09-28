@@ -37,7 +37,7 @@ export function Description() {
         <code>Link</code> is no longer a type error, thanks to{' '}
         <code>.default()</code> — proof, not just a claim:{' '}
         <Link
-          to="/24-search-json-zod/products"
+          to="/25-search-json-zod/products"
           className="text-sm font-medium text-indigo-300 hover:text-indigo-200"
         >
           this link has no search prop and still compiles

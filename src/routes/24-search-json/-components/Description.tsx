@@ -23,7 +23,7 @@ export function Description() {
       </p>
       <p className="mt-4 text-slate-400">
         One thing this approach can't express:{' '}
-        <code>{'<Link to="/23-search-json/products">'}</code> with no{' '}
+        <code>{'<Link to="/24-search-json/products">'}</code> with no{' '}
         <code>search</code> prop still fails to type-check, even though every
         field above falls back to a working default. <code>validateSearch</code>{' '}
         here is one plain function with one return type,{' '}

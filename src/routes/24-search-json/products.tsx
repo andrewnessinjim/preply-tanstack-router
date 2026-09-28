@@ -10,7 +10,7 @@ function isSortDir(value: unknown): value is SortDir {
   return value === "asc" || value === "desc";
 }
 
-export const Route = createFileRoute("/23-search-json/products")({
+export const Route = createFileRoute("/24-search-json/products")({
   validateSearch: (search: Record<string, unknown>): ProductsSearch => ({
     q: typeof search.q === "string" ? search.q : undefined,
     maxPrice: typeof search.maxPrice === "number" ? search.maxPrice : undefined,
